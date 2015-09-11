@@ -1,7 +1,7 @@
 # browser-report
 Report browser settings like whatsmybrowser.org
 
-# useage
+# usage
 Load this script into a browser and call `browserReport()` to get back an object with the following keys.
 
 	{
