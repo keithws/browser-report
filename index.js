@@ -12,8 +12,8 @@ window.browserReport = window.browserReport || function () {
     report = {
         "browser": {
             "name": null,
-            "version": null,
-            "size": null
+            "size": null,
+            "version": null
         },
         "cookies": null,
         "flash": {
@@ -28,9 +28,9 @@ window.browserReport = window.browserReport || function () {
             "version": null
         },
         "screen": {
-            "size": null,
             "colors": null,
-            "resolution": null
+            "resolution": null,
+            "size": null
         },
         "scripts": true,
         "userAgent": navigator.userAgent,
