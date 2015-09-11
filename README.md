@@ -5,7 +5,7 @@ Often, when a visitor to your website reports an issue, it can be difficult or i
 
 Lately, in this situation, I ask my visitors to send me the report from whatsmybrowser.org. But then, I realized that most of that information is available, via JavaScript, when the visitor is submitting their issue. So I set out to create a script that would provide the that information.
 
-Note, this is meant for reporting and not for application logic. Therefore, only the most common browser names and os names are reported. The full user agent string is always provided and can help you identify less common browsers.
+Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS, take a look at [platform.js](https://github.com/bestiejs/platform.js).
 
 # Usage
 Load this script into a browser and call `browserReport()` to get back an object with the following keys and value types. Note, some values maybe `null` if the information is not available.
