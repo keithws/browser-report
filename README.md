@@ -8,7 +8,32 @@ Lately, in this situation, I ask my visitors to send me the report from whatsmyb
 Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS, take a look at [platform.js](https://github.com/bestiejs/platform.js).
 
 # Usage
-Load this script into a browser and call `browserReport()` to get back an object with the following keys and value types. Note, some values maybe `null` if the information is not available.
+Load this script into a browser and call `browserReport()` with a callback. Note, some values maybe `null` if the information is not available.
+
+## Asynchronous
+
+	<script src="browser-report.js"></script>
+	<script>
+		browserReport(function (err, report) {
+			if (err) {
+				throw err;
+			}
+			console.log(report);
+		});
+	</script>
+
+## Synchronous
+
+Note, the remote client IP address is not available in the synchronous function call.
+
+	<script src="browser-report.js"></script>
+	<script>
+		var report = browserReportSync();
+	</script>
+
+## report object format
+
+The report object has the following keys and value types.
 
 	{
 		"browser": {
@@ -24,6 +49,7 @@ Load this script into a browser and call `browserReport()` to get back an object
 		"java": {
 			"version": (string)
 		},
+		"lang": (array || string),
 		"os": {
 			"name": (string),
 			"version": (string)
@@ -34,6 +60,7 @@ Load this script into a browser and call `browserReport()` to get back an object
 			"size": (string: width x hieght)
 		},
 		"scripts": (boolean),
+		"timestamp": (string),
 		"userAgent": (string),
 		"websockets": (boolean)
 	}
@@ -41,10 +68,6 @@ Load this script into a browser and call `browserReport()` to get back an object
 # Todo
 
 * add package manager support
-* generate UUID for cookie test instead of using the same UUID every time
-* report the client's preferred language for displaying pages
-* report the client's Date and Time and Time Zone
-* add optional call to a service to get the remote IP address, consider ipify.org
 * server side support (node)
 	* not all information is available server side
 	* but a lot of information can be extracted from the user agent
@@ -52,6 +75,15 @@ Load this script into a browser and call `browserReport()` to get back an object
 * report on other/all plugins
 
 #Change Log
+
+*2.0.0 – October 26, 2015*
+
+* `browserReport()` is now async and expects a callback
+* the previous synchronous function can still be found in `browserReportSync()`
+* the remote client IP address is now reported from ipify.org
+* a random UUID is now generated for cookie test instead of using the same UUID every time
+* report now includes the client's preferred language(s) for displaying pages
+* report now includes a timestamp with the client's locale date, time and time zone
 
 *1.0.0 — September 11, 2015*
 

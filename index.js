@@ -268,7 +268,7 @@
 
 
         // local date, time, and time zone
-        report.date = (new Date()).toString();
+        report.timestamp = (new Date()).toString();
 
 
         return report;
