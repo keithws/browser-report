@@ -10,7 +10,7 @@
     var extractDataFromClient;
 
     extractDataFromClient = function () {
-        var report, match, uuid;
+        var report, match, uuid, plugins;
 
         // initialize object to store results
         report = {
@@ -135,24 +135,28 @@
 
         // check plugins
         if (navigator.plugins) {
-            navigator.plugins.forEach(function (plugin) {
+            plugins = Array.prototype.slice.call(navigator.plugins, 0);
 
-                // what version of Adobe Flash
-                if (plugin.name.indexOf("Flash") >= 0) {
-                    match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
-                    if (match && match[1]) {
-                        report.flash.version = match[1];
-                    }
-                }
+            if (plugins.forEach) {
+                plugins.forEach(function (plugin) {
 
-                // what version of Java
-                if (plugin.name.indexOf("Java") >= 0) {
-                    match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
-                    if (match && match[1]) {
-                        report.java.version = match[1];
+                    // what version of Adobe Flash
+                    if (plugin.name.indexOf("Flash") >= 0) {
+                        match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
+                        if (match && match[1]) {
+                            report.flash.version = match[1];
+                        }
                     }
-                }
-            });
+
+                    // what version of Java
+                    if (plugin.name.indexOf("Java") >= 0) {
+                        match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
+                        if (match && match[1]) {
+                            report.java.version = match[1];
+                        }
+                    }
+                });
+            }
         }
 
 
