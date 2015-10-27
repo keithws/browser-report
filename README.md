@@ -8,9 +8,9 @@ Lately, in this situation, I ask my visitors to send me the report from whatsmyb
 Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS, take a look at [platform.js](https://github.com/bestiejs/platform.js).
 
 # Usage
-Load this script into a browser and call `browserReport()` with a callback. Note, some values maybe `null` if the information is not available.
+Package manager support is planned, but for now load this script into a browser and call `browserReport()` with a callback. Note, some values maybe `null` if the information is not available.
 
-## Asynchronous
+## Asynchronous Usage
 
 	<script src="browser-report.js"></script>
 	<script>
@@ -22,7 +22,7 @@ Load this script into a browser and call `browserReport()` with a callback. Note
 		});
 	</script>
 
-## Synchronous
+## Synchronous Usage
 
 Note, the remote client IP address is not available in the synchronous function call.
 
@@ -31,7 +31,7 @@ Note, the remote client IP address is not available in the synchronous function 
 		var report = browserReportSync();
 	</script>
 
-## report object format
+## Report Object Format
 
 The report object has the following keys and value types.
 
@@ -73,6 +73,7 @@ The report object has the following keys and value types.
 	* but a lot of information can be extracted from the user agent
 	* and the remote IP address is available
 * report on other/all plugins
+* setup sample webpage that shows browser-report implemented
 
 #Change Log
 
