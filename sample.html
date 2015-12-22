@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Example Usage of browser-report</title>
+	<style>
+	body {
+		font: message-box;
+	}
+	h1 {
+		font-size: 1em;
+	}
+	table {
+		border-collapse: collapse;
+	}
+	td {
+		border-bottom: 1pt solid gray;
+		padding: calc(1.25em - 0.5pt) 0;
+		padding-left: 1ex;
+	}
+	td:first-child {
+		padding-left: 0;
+	}
+	</style>
+</head>
+<body>
+	<h1>
+		Example Usage of browser-report
+	</h1>
+	<h2>
+		You are using {{browser.name}} {{browser.majorVersion}}.
+	</h2>
+	<h3>
+		Browser Details
+	</h3>
+	<p>
+		We’ve detected the following details about your browser.
+	</p>
+	<table>
+		<tr>
+			<td>
+				Operating System
+			</td>
+			<td>
+				{{os.name}} {{os.version}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				IP Address
+			</td>
+			<td>
+				{{ip}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				JavaScript Enabled
+			</td>
+			<td>
+				{{scripts}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Cookies Enabled
+			</td>
+			<td>
+				{{cookies}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Flash Version
+			</td>
+			<td>
+				{{flash.version}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Java Version
+			</td>
+			<td>
+				{{java.version}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				WebSockets Supported
+			</td>
+			<td>
+				{{websockets}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Browser Size
+			</td>
+			<td>
+				{{browser.size}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Screen Size
+			</td>
+			<td>
+				{{screen.size}} @ {{screen.ppi}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Color Depth
+			</td>
+			<td>
+				{{screen.colors}}
+			</td>
+		</tr>
+	</table>
+	<p class="user-agent">
+		Your full user agent string is:<br>
+		{{userAgent}}
+	</p>
+	<script src="index.js"></script>
+	<script>
+		browserReport(function (err, report) {
+			var h2, text, tds;
+
+			if (err) {
+				throw err;
+			}
+
+			// log report to console for developers
+			if (console) {
+				console.log(report);
+			}
+
+			// add some custom data to the report
+			if (report.browser.version) {
+				report.browser.majorVersion = report.browser.version.split(".")[0];
+			}
+			if (report.screen.size && report.screen.resolution) {
+				rsrs = report.screen.size.split(" x ")[0];
+				rsrw = report.screen.resolution.split(" x ")[0];
+				report.screen.ppi = Math.round(rsrw / rsrs) + "x";
+			}
+
+			// update h2 with browser name and major version
+			h2 = document.querySelector("h2");
+			text = h2.innerHTML;
+			text = text.replace("{{browser.name}}", report.browser.name);
+			text = text.replace("{{browser.majorVersion}}", report.browser.majorVersion);
+			h2.innerHTML = text;
+
+			// update table cells with browser details
+			tds = document.querySelectorAll("td");
+			Array.prototype.forEach.call(tds, function (td) {
+				var t, matches;
+
+				t = td.innerHTML;
+				matches = t.match(/{{[\w.]+?}}/g);
+
+				if (matches) {
+					matches.forEach(function (match) {
+						var key, k1, k2, v;
+
+						key = match.slice(2, -2);
+						k1 = key.split(".")[0];
+						k2 = key.split(".")[1];
+
+						if (k1 && k2) {
+							v = report[k1][k2] || "n/a";
+						} else {
+							v = report[k1] || "n/a";
+						}
+
+						if (v === true) {
+							v = "Yes";
+						}
+						if (v === false) {
+							v = "No";
+						}
+
+						t = t.replace(match, v);
+					});
+				}
+				td.innerHTML = t;
+			});
+
+			// update h2 with browser name and major version
+			p = document.querySelector("p.user-agent");
+			p.innerHTML = p.innerHTML.replace("{{userAgent}}", report.userAgent);
+		});
+	</script>
+</body>
+</html>
