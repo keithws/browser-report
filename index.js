@@ -9,7 +9,7 @@
     var extractDataFromClient;
 
     extractDataFromClient = function () {
-        var report, match, uuid, plugins;
+        var report, match, uuid;
 
         // initialize object to store results
         report = {
@@ -133,11 +133,14 @@
 
 
         // check plugins
-        if (navigator.plugins) {
-            plugins = Array.prototype.slice.call(navigator.plugins, 0);
+        (function (plugins) {
+            var i, l, plugin;
 
-            if (plugins.forEach) {
-                plugins.forEach(function (plugin) {
+            if (plugins) {
+                l = plugins.length;
+
+                for (i = 0; i < l; i += 1) {
+                    plugin = plugins.item(i);
 
                     // what version of Adobe Flash
                     if (plugin.name.indexOf("Flash") >= 0) {
@@ -154,9 +157,9 @@
                             report.java.version = match[1];
                         }
                     }
-                });
+                }
             }
-        }
+        }(navigator.plugins));
 
 
         // extract operating system name from user agent

@@ -77,6 +77,10 @@ The report object has the following keys and value types.
 
 #Change Log
 
+*2.0.1 - December 21, 2015*
+
+* fixed bug in IE8 when checking plugins
+
 *2.0.0 – October 26, 2015*
 
 * `browserReport()` is now async and expects a callback
