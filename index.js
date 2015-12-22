@@ -1,4 +1,3 @@
-/*jslint browser: true, bitwise: true, stupid: true */
 /*
 * Report browser settings like whatsmybrowser.org
 * Inspired by

@@ -4,7 +4,8 @@
   "description": "Report browser settings like whatsmybrowser.org.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "jslint --browser --bitwise --stupid -- index.js",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
