@@ -73,9 +73,19 @@ The report object has the following keys and value types.
 	* but a lot of information can be extracted from the user agent
 	* and the remote IP address is available
 * report on other/all plugins
-* setup sample webpage that shows browser-report implemented
+* add raw values for width and height of screen
+* add value for pixels-per-inch of screen
+* move browser.size to viewport.size
+* add raw values for width and height of visual viewport
+* add raw values for width and height of layout viewport
+* add value for zoom level of visual viewport
+* include the client's Do-Not-Track setting
 
 #Change Log
+
+*2.1.0 – January 13, 2015*
+
+* added a sample webpage
 
 *2.0.1 - December 21, 2015*
 
