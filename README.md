@@ -87,7 +87,7 @@ The report object has the following keys and value types.
 
 #Change Log
 
-*2.2.0 – January 14, 2015*
+*2.2.0 – January 14, 2016*
 
 * added raw values for width and height of screen
 * added value for dots per pixel (dppx) of screen
@@ -97,7 +97,7 @@ The report object has the following keys and value types.
 * added raw values for width and height of layout viewport
 * added value for zoom level of visual viewport
 
-*2.1.0 – January 13, 2015*
+*2.1.0 – January 13, 2016*
 
 * added a sample webpage
 
