@@ -15,7 +15,6 @@
         report = {
             "browser": {
                 "name": null,
-                "size": null,
                 "version": null
             },
             "cookies": null,
@@ -32,11 +31,21 @@
             },
             "screen": {
                 "colors": null,
-                "resolution": null,
-                "size": null
+                "dppx": null,
+                "height": null,
+                "width": null
             },
             "scripts": true,
             "userAgent": navigator.userAgent,
+            "viewport": {
+                "height": null,
+                "layout": {
+                    "height": null,
+                    "width": null
+                },
+                "width": null,
+                "zoom": null
+            },
             "websockets": null
         };
 
@@ -99,9 +108,24 @@
             report.browser.version = match[1];
         }
 
+        // pull in browser window size from the visual viewport
+        report.viewport.width = window.innerWidth;
+        report.viewport.height = window.innerHeight;
 
-        // pull in browser window size from industry standard properties
-        report.browser.size = window.innerWidth + " x " + window.innerHeight;
+        // deprecate report.browser.size
+        Object.defineProperty(report.browser, "size", {
+            get: function () {
+                console.warn("browser.size is deprecated; use viewport.width and viewport.height");
+                return report.viewport.width + " x " + report.viewport.height;
+            }
+        });
+
+        // pull in raw values for layout viewport
+        report.viewport.layout.width = document.documentElement.clientWidth;
+        report.viewport.layout.height = document.documentElement.clientHeight;
+
+        // define viewport zoom property
+        report.viewport.zoom = report.viewport.layout.width / report.viewport.width;
 
 
         // are cookies enabled
@@ -256,13 +280,30 @@
 
 
         // pull in screen info from W3C standard properties
-        report.screen.size = screen.width + " x " + screen.height;
+        report.screen.width = screen.width;
+        report.screen.height = screen.height;
         report.screen.colors = screen.colorDepth;
-        if (window.devicePixelRatio) {
-            report.screen.resolution = (window.devicePixelRatio * screen.width) + " x " + (window.devicePixelRatio * screen.height);
+        if (window.devicePixelRatio && !isNaN(window.devicePixelRatio)) {
+            report.screen.dppx = window.devicePixelRatio;
         } else {
-            report.screen.resolution = report.screen.size;
+            report.screen.dppx = 1;
         }
+
+        // deprecate report.screen.size
+        Object.defineProperty(report.screen, "size", {
+            get: function () {
+                console.warn("screen.size is deprecated; use screen.width and screen.height");
+                return report.screen.width + " x " + report.screen.height;
+            }
+        });
+
+        // deprecate report.screen.resolution
+        Object.defineProperty(report.screen, "resolution", {
+            get: function () {
+                console.warn("screen.resolution is deprecated; multiply screen.width and screen.height by screen.dppx");
+                return (report.screen.dppx * report.screen.width) + " x " + (report.screen.dppx * report.screen.height);
+            }
+        });
 
 
         // are web sockets supported

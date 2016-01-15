@@ -1,5 +1,5 @@
 # browser-report
-Report browser settings like [whatsmybrowser.org](http://www.whatsmybrowser.org).
+Report browser settings like [whatsmybrowser.org](http://www.whatsmybrowser.org) in a JavaScript object.
 
 Often, when a visitor to your website reports an issue, it can be difficult or impossible to reproduce the same issue without asking your visitor what software and settings they use.
 
@@ -38,7 +38,6 @@ The report object has the following keys and value types.
 	{
 		"browser": {
 			"name": (string),
-			"size": (string: width x hieght),
 			"version": (string)
 		},
 		"cookies": (boolean),
@@ -56,12 +55,22 @@ The report object has the following keys and value types.
 		},
 		"screen": {
 			"colors": (number),
-			"resolution": (string: width x hieght),
-			"size": (string: width x hieght)
+			"dppx": (number),
+			"height": (number),
+			"width": (number)
 		},
 		"scripts": (boolean),
 		"timestamp": (string),
 		"userAgent": (string),
+		"viewport": {
+			"height": (number),
+			"layout": {
+				"height": (number),
+				"width": (number)
+			}
+			"width": (number),
+			"zoom": (number)
+		}
 		"websockets": (boolean)
 	}
 
@@ -73,15 +82,20 @@ The report object has the following keys and value types.
 	* but a lot of information can be extracted from the user agent
 	* and the remote IP address is available
 * report on other/all plugins
-* add raw values for width and height of screen
-* add value for pixels-per-inch of screen
-* move browser.size to viewport.size
-* add raw values for width and height of visual viewport
-* add raw values for width and height of layout viewport
-* add value for zoom level of visual viewport
+* add value for font size of root element
 * include the client's Do-Not-Track setting
 
 #Change Log
+
+*2.2.0 – January 14, 2015*
+
+* added raw values for width and height of screen
+* added value for dots per pixel (dppx) of screen
+* deprecated screen.size and screen.resolution
+* added raw values for width and height of visual viewport
+* deprecated browser.size
+* added raw values for width and height of layout viewport
+* added value for zoom level of visual viewport
 
 *2.1.0 – January 13, 2015*
 

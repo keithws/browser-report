@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Example Usage of browser-report</title>
 	<style>
 	body {
@@ -98,7 +99,7 @@
 				Browser Size
 			</td>
 			<td>
-				{{browser.size}}
+				{{viewport.width}} x {{viewport.height}}
 			</td>
 		</tr>
 		<tr>
@@ -106,7 +107,7 @@
 				Screen Size
 			</td>
 			<td>
-				{{screen.size}} @ {{screen.ppi}}
+				{{screen.width}} x {{screen.height}} @ {{screen.dppx}}x
 			</td>
 		</tr>
 		<tr>
@@ -124,6 +125,8 @@
 	</p>
 	<script src="index.js"></script>
 	<script>
+		var sampleReport;
+
 		browserReport(function (err, report) {
 			var h2, text, tds;
 
@@ -131,19 +134,12 @@
 				throw err;
 			}
 
-			// log report to console for developers
-			if (console) {
-				console.log(report);
-			}
+			// save to global variable for inspection by developers
+			sampleReport = report;
 
 			// add some custom data to the report
 			if (report.browser.version) {
 				report.browser.majorVersion = report.browser.version.split(".")[0];
-			}
-			if (report.screen.size && report.screen.resolution) {
-				rsrs = report.screen.size.split(" x ")[0];
-				rsrw = report.screen.resolution.split(" x ")[0];
-				report.screen.ppi = Math.round(rsrw / rsrs) + "x";
 			}
 
 			// update h2 with browser name and major version
