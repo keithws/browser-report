@@ -66,14 +66,30 @@
             report.browser.name = "Firefox";
         }
 
-        if (userAgent.match(/(Edge|Trident|MSIE)/)) {
-            report.browser.name = "Internet Explorer";
+        if (userAgent.match(/(Trident|MSIE)/)) {
+            if (userAgent.indexOf("Mobile") >= 0) {
+                report.browser.name = "IE Mobile";
+            } else {
+                report.browser.name = "Internet Explorer";
+            }
+        }
+
+        if (userAgent.indexOf("Edge") >= 0) {
+            report.browser.name = "Edge";
         }
 
         if (userAgent.indexOf("Safari") >= 0) {
             if (!(userAgent.indexOf("Chrome") >= 0)) {
-                report.browser.name = "Safari";
+                if (userAgent.indexOf("Android") >= 0) {
+                    report.browser.name = "Android Browser";
+                } else {
+                    report.browser.name = "Safari";
+                }
             }
+        }
+
+        if (userAgent.indexOf("Android WebView") >= 0) {
+            report.browser.name = "Android WebView";
         }
 
 
@@ -88,6 +104,7 @@
             match = userAgent.match(/Firefox\/((\d+\.)+\d+)/);
             break;
         case "Internet Explorer":
+        case "IE Mobile":
 
             if (userAgent.indexOf("Edge") >= 0) {
                 match = userAgent.match(/Edge\/((\d+\.)+\d+)/);
@@ -99,6 +116,7 @@
 
             break;
         case "Safari":
+        case "Android Browser":
             match = userAgent.match(/Version\/((\d+\.)+\d+)/);
             break;
         default:
@@ -190,7 +208,11 @@
 
         // extract operating system name from user agent
         if (userAgent.indexOf("Windows") >= 0) {
-            report.os.name = "Windows";
+            if (userAgent.indexOf("Windows Phone") >= 0) {
+                report.os.name = "Windows Phone";
+            } else {
+                report.os.name = "Windows";
+            }
         }
 
         if (userAgent.indexOf("OS X") >= 0) {
@@ -215,13 +237,27 @@
 
         switch (report.os.name) {
         case "Windows":
+        case "Windows Phone":
             if (userAgent.indexOf("Win16") >= 0) {
                 report.os.version = "3.1.1";
+            } else if (userAgent.indexOf("Windows CE") >= 0) {
+                report.os.version = "CE";
+            } else if (userAgent.indexOf("Windows 95") >= 0) {
+                report.os.version = "95";
+            } else if (userAgent.indexOf("Windows 98") >= 0) {
+                if (userAgent.indexOf("Windows 98; Win 9x 4.90") >= 0) {
+                    report.os.version = "Millennium Edition";
+                } else {
+                    report.os.version = "98";
+                }
             } else {
-                match = userAgent.match(/Win(?:dows)?[\ _]?(?:(?:NT|9x)\ )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
+                match = userAgent.match(/Win(?:dows)?(?: Phone)?[\ _]?(?:(?:NT|9x)\ )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
 
                 if (match && match[1]) {
                     switch (match[1]) {
+                    case "6.4":
+                        match[1] = "10.0";
+                        break;
                     case "6.3":
                         match[1] = "8.1";
                         break;
@@ -240,12 +276,14 @@
                     case "5.1":
                         match[1] = "XP";
                         break;
+                    case "5.01":
+                        match[1] = "2000 SP1";
+                        break;
                     case "5.0":
                         match[1] = "2000";
                         break;
-                    case "4.9":
-                    case "4.9.0":
-                        match[1] = "ME";
+                    case "4.0":
+                        match[1] = "4.0";
                         break;
                     default:
                         // nothing

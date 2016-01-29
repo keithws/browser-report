@@ -87,6 +87,11 @@ The report object has the following keys and value types.
 
 #Change Log
 
+*2.2.1 – January 29, 2016*
+
+* added unit tests
+* improved browser and os detection
+
 *2.2.0 – January 14, 2016*
 
 * added raw values for width and height of screen
