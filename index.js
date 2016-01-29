@@ -8,8 +8,10 @@
 
     var extractDataFromClient;
 
-    extractDataFromClient = function () {
-        var report, match, uuid;
+    extractDataFromClient = function (userAgent) {
+        var report, match, uuid, userAgent;
+
+        userAgent = userAgent || navigator.userAgent;
 
         // initialize object to store results
         report = {
@@ -36,7 +38,7 @@
                 "width": null
             },
             "scripts": true,
-            "userAgent": navigator.userAgent,
+            "userAgent": userAgent,
             "viewport": {
                 "height": null,
                 "layout": {
@@ -51,25 +53,25 @@
 
 
         // extract browser name from user agent
-        match = navigator.userAgent.match(/^(\w+)\//);
+        match = userAgent.match(/^(\w+)\//);
         if (match && match[1]) {
             report.browser.name = match[1];
         }
 
-        if (navigator.userAgent.indexOf("Chrome") >= 0) {
+        if (userAgent.indexOf("Chrome") >= 0) {
             report.browser.name = "Chrome";
         }
 
-        if (navigator.userAgent.indexOf("Firefox") >= 0) {
+        if (userAgent.indexOf("Firefox") >= 0) {
             report.browser.name = "Firefox";
         }
 
-        if (navigator.userAgent.match(/(Edge|Trident|MSIE)/)) {
+        if (userAgent.match(/(Edge|Trident|MSIE)/)) {
             report.browser.name = "Internet Explorer";
         }
 
-        if (navigator.userAgent.indexOf("Safari") >= 0) {
-            if (!(navigator.userAgent.indexOf("Chrome") >= 0)) {
+        if (userAgent.indexOf("Safari") >= 0) {
+            if (!(userAgent.indexOf("Chrome") >= 0)) {
                 report.browser.name = "Safari";
             }
         }
@@ -80,27 +82,27 @@
 
         switch (report.browser.name) {
         case "Chrome":
-            match = navigator.userAgent.match(/Chrome\/((\d+\.)+\d+)/);
+            match = userAgent.match(/Chrome\/((\d+\.)+\d+)/);
             break;
         case "Firefox":
-            match = navigator.userAgent.match(/Firefox\/((\d+\.)+\d+)/);
+            match = userAgent.match(/Firefox\/((\d+\.)+\d+)/);
             break;
         case "Internet Explorer":
 
-            if (navigator.userAgent.indexOf("Edge") >= 0) {
-                match = navigator.userAgent.match(/Edge\/((\d+\.)+\d+)/);
-            } else if (navigator.userAgent.indexOf("rv:11") >= 0) {
-                match = navigator.userAgent.match(/rv:((\d+\.)+\d+)/);
-            } else if (navigator.userAgent.indexOf("MSIE") >= 0) {
-                match = navigator.userAgent.match(/MSIE\ ((\d+\.)+\d+)/);
+            if (userAgent.indexOf("Edge") >= 0) {
+                match = userAgent.match(/Edge\/((\d+\.)+\d+)/);
+            } else if (userAgent.indexOf("rv:11") >= 0) {
+                match = userAgent.match(/rv:((\d+\.)+\d+)/);
+            } else if (userAgent.indexOf("MSIE") >= 0) {
+                match = userAgent.match(/MSIE\ ((\d+\.)+\d+)/);
             }
 
             break;
         case "Safari":
-            match = navigator.userAgent.match(/Version\/((\d+\.)+\d+)/);
+            match = userAgent.match(/Version\/((\d+\.)+\d+)/);
             break;
         default:
-            match = navigator.userAgent.match(/\/((\d+\.)+\d+)$/);
+            match = userAgent.match(/\/((\d+\.)+\d+)$/);
             break;
         }
 
@@ -187,23 +189,23 @@
 
 
         // extract operating system name from user agent
-        if (navigator.userAgent.indexOf("Windows") >= 0) {
+        if (userAgent.indexOf("Windows") >= 0) {
             report.os.name = "Windows";
         }
 
-        if (navigator.userAgent.indexOf("OS X") >= 0) {
+        if (userAgent.indexOf("OS X") >= 0) {
             report.os.name = "OS X";
         }
 
-        if (navigator.userAgent.indexOf("Linux") >= 0) {
+        if (userAgent.indexOf("Linux") >= 0) {
             report.os.name = "Linux";
         }
 
-        if (navigator.userAgent.indexOf("like Mac OS X") >= 0) {
+        if (userAgent.indexOf("like Mac OS X") >= 0) {
             report.os.name = "iOS";
         }
 
-        if (navigator.userAgent.indexOf("Android") >= 0) {
+        if (userAgent.indexOf("Android") >= 0) {
             report.os.name = "Android";
         }
 
@@ -213,10 +215,10 @@
 
         switch (report.os.name) {
         case "Windows":
-            if (navigator.userAgent.indexOf("Win16") >= 0) {
+            if (userAgent.indexOf("Win16") >= 0) {
                 report.os.version = "3.1.1";
             } else {
-                match = navigator.userAgent.match(/Win(?:dows)?[\ _]?(?:(?:NT|9x)\ )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
+                match = userAgent.match(/Win(?:dows)?[\ _]?(?:(?:NT|9x)\ )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
 
                 if (match && match[1]) {
                     switch (match[1]) {
@@ -253,17 +255,17 @@
             }
             break;
         case "OS X":
-            match = navigator.userAgent.match(/OS\ X\ ((\d+[._])+\d+)\b/);
+            match = userAgent.match(/OS\ X\ ((\d+[._])+\d+)\b/);
             break;
         case "Linux":
             // linux user agent strings do not usually include the version
             report.os.version = null;
             break;
         case "iOS":
-            match = navigator.userAgent.match(/OS\ ((\d+[._])+\d+)\ like\ Mac\ OS\ X/);
+            match = userAgent.match(/OS\ ((\d+[._])+\d+)\ like\ Mac\ OS\ X/);
             break;
         case "Android":
-            match = navigator.userAgent.match(/Android\ ((\d+[._])+\d+)/);
+            match = userAgent.match(/Android\ ((\d+[._])+\d+)/);
             break;
         default:
             // no good default behavior
@@ -354,7 +356,7 @@
      * synchronous version returns report immediately
      * but does not include the remote client IP address
      */
-    window.browserReportSync = window.browserReportSync || function () {
-        return extractDataFromClient();
+    window.browserReportSync = window.browserReportSync || function (userAgent) {
+        return extractDataFromClient(userAgent);
     };
 }());
