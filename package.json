@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "jslint --browser --bitwise --stupid -- index.js",
-    "test": "npm run lint"
+    "build": "cp index.js dist/browser-report.js",
+    "postbuild": "npm run uglify",
+    "test": "npm run lint",
+    "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/keithws/browser-report/issues"
   },
-  "homepage": "https://github.com/keithws/browser-report#readme"
+  "homepage": "https://github.com/keithws/browser-report#readme",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.2.1",
+    "uglify-js": "^2.6.1"
+  }
 }
