@@ -70,6 +70,20 @@ var expectedResults = [
     }
   },
   {
+    "device": "Nokia Lumia 625",
+    "userAgent": "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 625) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537",
+    "expectedReport": {
+      "browser": {
+        "name": "IE Mobile",
+        "version": "11.0"
+      },
+      "os": {
+        "name": "Windows Phone",
+        "version": "8.1"
+      }
+    }
+  },
+  {
     "device": "LG Optimus L70",
     "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
