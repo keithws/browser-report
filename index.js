@@ -53,20 +53,7 @@
 
 
         // extract browser name from user agent
-        match = userAgent.match(/^(\w+)\//);
-        if (match && match[1]) {
-            report.browser.name = match[1];
-        }
-
-        if (userAgent.indexOf("Chrome") >= 0) {
-            report.browser.name = "Chrome";
-        }
-
-        if (userAgent.indexOf("Firefox") >= 0) {
-            report.browser.name = "Firefox";
-        }
-
-        if (userAgent.match(/(Trident|MSIE)/)) {
+        if (userAgent.indexOf("Trident") >= 0 || userAgent.indexOf("MSIE") >= 0) {
             if (userAgent.indexOf("Mobile") >= 0) {
                 report.browser.name = "IE Mobile";
             } else {
@@ -74,23 +61,40 @@
             }
         }
 
+        if (userAgent.indexOf("Firefox") >= 0 && userAgent.indexOf("Seamonkey") === -1) {
+            report.browser.name = "Firefox";
+        }
+
+        if (userAgent.indexOf("Safari") >= 0 && userAgent.indexOf("Chrome") === -1 && userAgent.indexOf("Chromium") === -1 && userAgent.indexOf("Android") === -1) {
+            if (userAgent.indexOf("CriOS") >= 0) {
+                report.browser.name = "Chrome for iOS";
+            } else if (userAgent.indexOf("FxiOS") >= 0) {
+                report.browser.name = "Firefox for iOS";
+            } else {
+                report.browser.name = "Safari";
+            }
+        }
+
+        if (userAgent.indexOf("Chrome") >= 0) {
+            if (userAgent.match(/\bChrome\/[.0-9]* Mobile\b/)) {
+                if (userAgent.match(/\bVersion\/\d+\.\d+\b/) || userAgent.match(/\bwv\b/)) {
+                    report.browser.name = "WebView on Android";
+                } else {
+                    report.browser.name = "Chrome for Android";
+                }
+            } else {
+                report.browser.name = "Chrome";
+            }
+        }
+
+        if (userAgent.indexOf("Android") >= 0 && userAgent.indexOf("Chrome") === -1 && userAgent.indexOf("Chromium") === -1 && userAgent.indexOf("Trident") === -1) {
+            report.browser.name = "Android Browser";
+        }
+
         if (userAgent.indexOf("Edge") >= 0) {
             report.browser.name = "Edge";
         }
 
-        if (userAgent.indexOf("Safari") >= 0) {
-            if (!(userAgent.indexOf("Chrome") >= 0)) {
-                if (userAgent.indexOf("Android") >= 0) {
-                    report.browser.name = "Android Browser";
-                } else {
-                    report.browser.name = "Safari";
-                }
-            }
-        }
-
-        if (userAgent.indexOf("Android WebView") >= 0) {
-            report.browser.name = "Android WebView";
-        }
 
 
         // extract browser version number from user agent
@@ -98,11 +102,14 @@
 
         switch (report.browser.name) {
         case "Chrome":
+        case "Chrome for Android":
+        case "WebView on Android":
             match = userAgent.match(/Chrome\/((\d+\.)+\d+)/);
             break;
         case "Firefox":
             match = userAgent.match(/Firefox\/((\d+\.)+\d+)/);
             break;
+        case "Edge":
         case "Internet Explorer":
         case "IE Mobile":
 
@@ -215,7 +222,7 @@
             }
         }
 
-        if (userAgent.indexOf("OS X") >= 0) {
+        if (userAgent.indexOf("OS X") >= 0 && userAgent.indexOf("Android") === -1) {
             report.os.name = "OS X";
         }
 
@@ -227,7 +234,7 @@
             report.os.name = "iOS";
         }
 
-        if (userAgent.indexOf("Android") >= 0) {
+        if (userAgent.indexOf("Android") >= 0 && userAgent.indexOf("Windows Phone") === -1) {
             report.os.name = "Android";
         }
 

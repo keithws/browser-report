@@ -4,7 +4,7 @@ var expectedResults = [
     "userAgent": "Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
       "browser": {
-        "name": "Chrome",
+        "name": "Chrome for Android",
         "version": "46.0.2490.76"
       },
       "os": {
@@ -88,7 +88,7 @@ var expectedResults = [
     "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; LGMS323 Build/KOT49I.MS32310c) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
       "browser": {
-        "name": "Chrome",
+        "name": "WebView on Android",
         "version": "46.0.2490.76"
       },
       "os": {
@@ -116,7 +116,7 @@ var expectedResults = [
     "userAgent": "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
       "browser": {
-        "name": "Chrome",
+        "name": "Chrome for Android",
         "version": "46.0.2490.76"
       },
       "os": {
@@ -130,7 +130,7 @@ var expectedResults = [
     "userAgent": "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
       "browser": {
-        "name": "Chrome",
+        "name": "Chrome for Android",
         "version": "46.0.2490.76"
       },
       "os": {
@@ -144,7 +144,7 @@ var expectedResults = [
     "userAgent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
       "browser": {
-        "name": "Chrome",
+        "name": "Chrome for Android",
         "version": "46.0.2490.76"
       },
       "os": {
