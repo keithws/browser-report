@@ -378,6 +378,34 @@ var expectedResults = [
     }
   },
   {
+    "device": "Edge 13 — Windows Phone 10 — Nokia Lumia 1520",
+    "userAgent": "Mozilla/5.0 (Windows Phone 10.0; Android 5.1.1; NOKIA; Lumia 1520) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/13.10586",
+    "expectedReport": {
+      "browser": {
+        "name": "Edge",
+        "version": "13.10586"
+      },
+      "os": {
+        "name": "Windows Phone",
+        "version": "10.0"
+      }
+    }
+  },
+  {
+    "device": "Edge 13",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586",
+    "expectedReport": {
+      "browser": {
+        "name": "Edge",
+        "version": "13.10586"
+      },
+      "os": {
+        "name": "Windows",
+        "version": "10.0"
+      }
+    }
+  },
+  {
     "device": "Safari — iOS 9.1 — iPhone",
     "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1",
     "expectedReport": {
