@@ -74,6 +74,12 @@ The report object has the following keys and value types.
 		"websockets": (boolean)
 	}
 
+# Coverage
+
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table](http://caniuse.com/usage-table). Their browser usage table accounts for 97.62% of global usage based on data from [StatCounter GlobalStats](http://gs.statcounter.com/).
+
+Current coverage is __83.2%__ = (97.62% - 8.11% - 4.86% - 1.34% - 0.09% - 0.02%)
+
 # Todo
 
 * add support for bower, component, jam, and spm
@@ -84,7 +90,13 @@ The report object has the following keys and value types.
 * report on other/all plugins
 * report on value for font size of root element
 * report on the client's Do-Not-Track setting
-* add support for Chromium, Opera Mini, and UC Browser for Android
+* add test cases for
+	* UC Browser for Android (8.11%)
+	* Opera Mini (4.86%)
+	* Opera (1.34%)
+	* Blackberry Browser (0.09%)
+	* Opera Mobile (0.02%)
+* convert Markdown links to references
 
 #Change Log
 
