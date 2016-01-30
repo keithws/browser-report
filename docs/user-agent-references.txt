@@ -21,7 +21,7 @@ UC Browser for Android
 	[4] Safari gives two version number, one technical in the Safari/xyz token, one user-friendly in a Version/xyz token
 
 
-# Not currenly supported due to low/no traffic reported by caniuse.com
+# Not currently supported due to low/no traffic reported by caniuse.com
 Blackberry Browser
 Opera Mobile
 Firefox for Android
@@ -47,4 +47,9 @@ Firefox for Android
 ##
 # Browser detection using the user agent
 # https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
+##
+
+##
+# User-Agent and X-UCBrowser-UA Specification of UC Browser
+# http://www.ucweb.com/download/UCBrowser_User_Agent_en.pdf
 ##

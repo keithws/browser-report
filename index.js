@@ -62,7 +62,11 @@
         }
 
         if (userAgent.indexOf("Firefox") >= 0 && userAgent.indexOf("Seamonkey") === -1) {
-            report.browser.name = "Firefox";
+            if (userAgent.indexOf("Android") >= 0) {
+                report.browser.name = "Firefox for Android";
+            } else {
+                report.browser.name = "Firefox";
+            }
         }
 
         if (userAgent.indexOf("Safari") >= 0 && userAgent.indexOf("Chrome") === -1 && userAgent.indexOf("Chromium") === -1 && userAgent.indexOf("Android") === -1) {
@@ -87,12 +91,16 @@
             }
         }
 
-        if (userAgent.indexOf("Android") >= 0 && userAgent.indexOf("Chrome") === -1 && userAgent.indexOf("Chromium") === -1 && userAgent.indexOf("Trident") === -1) {
+        if (userAgent.indexOf("Android") >= 0 && userAgent.indexOf("Chrome") === -1 && userAgent.indexOf("Chromium") === -1 && userAgent.indexOf("Trident") === -1 && userAgent.indexOf("Firefox") === -1) {
             report.browser.name = "Android Browser";
         }
 
         if (userAgent.indexOf("Edge") >= 0) {
             report.browser.name = "Edge";
+        }
+
+        if (userAgent.indexOf("UCBrowser") >= 0) {
+            report.browser.name = "UC Browser for Android";
         }
 
 
@@ -107,8 +115,11 @@
             match = userAgent.match(/Chrome\/((\d+\.)+\d+)/);
             break;
         case "Firefox":
+        case "Firefox for Android":
             match = userAgent.match(/Firefox\/((\d+\.)+\d+)/);
             break;
+        case "Firefox for iOS":
+            match = userAgent.match(/FxiOS\/((\d+\.)+\d+)/);
         case "Edge":
         case "Internet Explorer":
         case "IE Mobile":
@@ -125,6 +136,9 @@
         case "Safari":
         case "Android Browser":
             match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            break;
+        case "UC Browser for Android":
+            match = userAgent.match(/UCBrowser\/((\d+\.)+\d+)/);
             break;
         default:
             match = userAgent.match(/\/((\d+\.)+\d+)$/);
@@ -234,7 +248,7 @@
             report.os.name = "iOS";
         }
 
-        if (userAgent.indexOf("Android") >= 0 && userAgent.indexOf("Windows Phone") === -1) {
+        if ((userAgent.indexOf("Android") >= 0 || userAgent.indexOf("Adr") >= 0) && userAgent.indexOf("Windows Phone") === -1) {
             report.os.name = "Android";
         }
 
@@ -310,7 +324,7 @@
             match = userAgent.match(/OS\ ((\d+[._])+\d+)\ like\ Mac\ OS\ X/);
             break;
         case "Android":
-            match = userAgent.match(/Android\ ((\d+[._])+\d+)/);
+            match = userAgent.match(/(?:Android|Adr)\ ((\d+[._])+\d+)/);
             break;
         default:
             // no good default behavior

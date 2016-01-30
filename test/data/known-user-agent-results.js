@@ -1,5 +1,33 @@
 var expectedResults = [
   {
+    "device": "UC Browser — Android — Speed Mode On",
+    "userAgent": "UCWEB/2.0 (Linux; U; Adr 2.3; en-US; MI-ONEPlus) U2/1.0.0 UCBrowser/8.6.0.199 U2/1.0.0 Mobile",
+    "expectedReport": {
+      "browser": {
+        "name": "UC Browser for Android",
+        "version": "8.6.0.199"
+      },
+      "os": {
+        "name": "Android",
+        "version": "2.3"
+      }
+    }
+  },
+  {
+    "device": "UC Browser — Android — Speed Mode Off",
+    "userAgent": "Mozilla/5.0 (Linux; U; Android 2.3; zh-CN; MI-ONEPlus) AppleWebKit/534.13 (KHTML, like Gecko) UCBrowser/8.6.0.199 U3/0.8.0 Mobile Safari/534.13",
+    "expectedReport": {
+      "browser": {
+        "name": "UC Browser for Android",
+        "version": "8.6.0.199"
+      },
+      "os": {
+        "name": "Android",
+        "version": "2.3"
+      }
+    }
+  },
+  {
     "device": "Samsung Galaxy S4",
     "userAgent": "Mozilla/5.0 (Linux; Android 4.2.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile Safari/537.36",
     "expectedReport": {
@@ -150,6 +178,34 @@ var expectedResults = [
       "os": {
         "name": "Android",
         "version": "6.0"
+      }
+    }
+  },
+  {
+    "device": "Firefox — Android",
+    "userAgent": "Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0",
+    "expectedReport": {
+      "browser": {
+        "name": "Firefox for Android",
+        "version": "41.0"
+      },
+      "os": {
+        "name": "Android",
+        "version": "4.4"
+      }
+    }
+  },
+  {
+    "device": "Firefox — iOS",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69 Safari/600.1.4",
+    "expectedReport": {
+      "browser": {
+        "name": "Firefox for iOS",
+        "version": "1.0"
+      },
+      "os": {
+        "name": "iOS",
+        "version": "8.3"
       }
     }
   },
