@@ -103,11 +103,11 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 
 #Change Log
 
-*2.2.x – ??? ??, 2016*
+*2.2.3 – January 29, 2016*
 
 * added test cases
 	* Firefox on Android and iOS
-	* UC Browser for Android (8.11%)
+	* UC Browser for Android
 * improved browser and os detection
 
 *2.2.2 – January 29, 2016*
