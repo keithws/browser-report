@@ -76,16 +76,22 @@ The report object has the following keys and value types.
 
 # Todo
 
-* add package manager support
+* add support for bower, component, jam, and spm
 * server side support (node)
 	* not all information is available server side
 	* but a lot of information can be extracted from the user agent
 	* and the remote IP address is available
 * report on other/all plugins
-* add value for font size of root element
-* include the client's Do-Not-Track setting
+* report on value for font size of root element
+* report on the client's Do-Not-Track setting
+* add support for Chromium, Opera Mini, and UC Browser for Android
 
 #Change Log
+
+*2.2.2 – January 29, 2016*
+
+* added test case for Nokia Lumia 625
+* improved browser and os detection
 
 *2.2.1 – January 29, 2016*
 
