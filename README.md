@@ -80,6 +80,10 @@ The goal is to correctly identify all browsers included on caniuse.com according
 
 Current coverage is __83.2%__ = (97.62% - 8.11% - 4.86% - 1.34% - 0.09% - 0.02%)
 
+# Benchmarks
+
+The script file size is under 3K when gzipped and under 2K when uglified and gzipped.
+
 # Todo
 
 * add support for bower, component, jam, and spm
