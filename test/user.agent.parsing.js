@@ -13,7 +13,9 @@ describe("User Agent Matching", function () {
             report.browser.name.should.equal(expected.browser.name);
             report.browser.version.should.equal(expected.browser.version);
             report.os.name.should.equal(expected.os.name);
-            report.os.version.should.equal(expected.os.version);
+
+            // handle os version being null
+            should(report.os.version).be.exactly(expected.os.version);
         });
     });
 });

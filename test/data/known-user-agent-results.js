@@ -1,5 +1,19 @@
 var expectedResults = [
   {
+    "device": "Opera Mini — Android",
+    "userAgent": "Opera/9.80 (Android; Opera Mini/8.0.1807/36.1609; U; en) Presto/2.12.423 Version/12.16",
+    "expectedReport": {
+      "browser": {
+        "name": "Opera Mini",
+        "version": "8.0.1807"
+      },
+      "os": {
+        "name": "Android",
+        "version": null
+      }
+    }
+  },
+  {
     "device": "UC Browser — Android — Speed Mode On",
     "userAgent": "UCWEB/2.0 (Linux; U; Adr 2.3; en-US; MI-ONEPlus) U2/1.0.0 UCBrowser/8.6.0.199 U2/1.0.0 Mobile",
     "expectedReport": {

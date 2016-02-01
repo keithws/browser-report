@@ -95,13 +95,17 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 * report on value for font size of root element
 * report on the client's Do-Not-Track setting
 * add test cases for
-	* Opera Mini (4.86%)
 	* Opera (1.34%)
 	* Blackberry Browser (0.09%)
 	* Opera Mobile (0.02%)
 * convert Markdown links to references
 
 #Change Log
+
+*develop — February 1, 2016*
+
+* added test case for
+	* Opera Mini
 
 *2.2.3 – January 29, 2016*
 

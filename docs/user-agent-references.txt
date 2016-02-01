@@ -53,3 +53,8 @@ Firefox for Android
 # User-Agent and X-UCBrowser-UA Specification of UC Browser
 # http://www.ucweb.com/download/UCBrowser_User_Agent_en.pdf
 ##
+
+##
+# Opera Mini Request Headers
+# https://dev.opera.com/articles/opera-mini-request-headers/
+##
