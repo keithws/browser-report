@@ -78,7 +78,7 @@ The report object has the following keys and value types.
 
 The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table](http://caniuse.com/usage-table). Their browser usage table accounts for 97.62% of global usage based on data from [StatCounter GlobalStats](http://gs.statcounter.com/).
 
-Current coverage is __91.31%__ = (97.62% - 4.86% - 1.34% - 0.09% - 0.02%)
+Current coverage is __97.51%__ = (97.62% - 0.09% - 0.02%)
 
 # Benchmarks
 
@@ -95,7 +95,6 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 * report on value for font size of root element
 * report on the client's Do-Not-Track setting
 * add test cases for
-	* Opera (1.34%)
 	* Blackberry Browser (0.09%)
 	* Opera Mobile (0.02%)
 * convert Markdown links to references
@@ -106,6 +105,9 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 
 * added test case for
 	* Opera Mini
+	* Opera 15 and above
+	* Opera 12 and below
+	* Opera 9 and below
 
 *2.2.3 – January 29, 2016*
 

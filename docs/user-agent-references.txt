@@ -58,3 +58,13 @@ Firefox for Android
 # Opera Mini Request Headers
 # https://dev.opera.com/articles/opera-mini-request-headers/
 ##
+
+##
+# Opera User Agent Strings: Opera 15 and Beyond
+# https://dev.opera.com/blog/opera-user-agent-strings-opera-15-and-beyond/
+##
+
+##
+# Opera version history
+# http://www.opera.com/docs/history/
+##

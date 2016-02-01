@@ -103,10 +103,13 @@
             report.browser.name = "UC Browser for Android";
         }
 
-        if (userAgent.indexOf("Opera Mini") >= 0) {
-            report.browser.name = "Opera Mini";
+        if (userAgent.indexOf("OPR") >= 0 || userAgent.indexOf("Opera") >= 0) {
+            if (userAgent.indexOf("Opera Mini") >= 0) {
+                report.browser.name = "Opera Mini";
+            } else {
+                report.browser.name = "Opera";
+            }
         }
-
 
 
         // extract browser version number from user agent
@@ -146,6 +149,15 @@
             break;
         case "Opera Mini":
             match = userAgent.match(/Opera Mini\/((\d+\.)+\d+)/);
+            break;
+        case "Opera":
+            if (userAgent.match(/OPR/)) {
+                match = userAgent.match(/OPR\/((\d+\.)+\d+)/);
+            } else if (userAgent.match(/Version/)) {
+                match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            } else {
+                match = userAgent.match(/Opera\/((\d+\.)+\d+)/);
+            }
             break;
         default:
             match = userAgent.match(/\/((\d+\.)+\d+)$/);

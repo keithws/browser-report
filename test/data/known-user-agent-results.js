@@ -1,5 +1,75 @@
 var expectedResults = [
   {
+    "device": "Opera 9 — Windows",
+    "userAgent": "Opera/9.27 (Windows NT 5.1; U; en)",
+    "expectedReport": {
+      "browser": {
+        "name": "Opera",
+        "version": "9.27"
+      },
+      "os": {
+        "name": "Windows",
+        "version": "XP"
+      }
+    }
+  },
+  {
+    "device": "Opera 10.1 — Windows",
+    "userAgent": "Opera/9.80 (Windows NT 6.0; U; en) Presto/2.2.15 Version/10.10",
+    "expectedReport": {
+      "browser": {
+        "name": "Opera",
+        "version": "10.10"
+      },
+      "os": {
+        "name": "Windows",
+        "version": "Vista"
+      }
+    }
+  },
+  {
+    "device": "Opera 12.1 — Windows",
+    "userAgent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14",
+    "expectedReport": {
+      "browser": {
+        "name": "Opera",
+        "version": "12.14"
+      },
+      "os": {
+        "name": "Windows",
+        "version": "Vista"
+      }
+    }
+  },
+  {
+    "device": "Opera 15 — Windows",
+    "userAgent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100",
+    "expectedReport": {
+      "browser": {
+        "name": "Opera",
+        "version": "15.0.1147.100"
+      },
+      "os": {
+        "name": "Windows",
+        "version": "7"
+      }
+    }
+  },
+  {
+    "device": "Opera 29 — Mac",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.82 Safari/537.36 OPR/29.0.1795.41 (Edition beta)",
+    "expectedReport": {
+      "browser": {
+        "name": "Opera",
+        "version": "29.0.1795.41"
+      },
+      "os": {
+        "name": "OS X",
+        "version": "10.10.2"
+      }
+    }
+  },
+  {
     "device": "Opera Mini — Android",
     "userAgent": "Opera/9.80 (Android; Opera Mini/8.0.1807/36.1609; U; en) Presto/2.12.423 Version/12.16",
     "expectedReport": {
