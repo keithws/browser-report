@@ -1,5 +1,47 @@
 var expectedResults = [
   {
+    "device": "BlackBerry 6 — BlackBerryOS — BlackBerry 9900",
+    "userAgent": "Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.466 Mobile Safari/534.8+",
+    "expectedReport": {
+      "browser": {
+        "name": "BlackBerry",
+        "version": "6.0.0.466"
+      },
+      "os": {
+        "name": "BlackBerryOS",
+        "version": "6.0.0.466"
+      }
+    }
+  },
+  {
+    "device": "BlackBerry 7 — BlackBerry Tablet OS — BlackBerry PlayBook",
+    "userAgent": "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.0.0; en-US) AppleWebKit/535.8+ (KHTML, like Gecko) Version/7.2.0.0 Safari/535.8+",
+    "expectedReport": {
+      "browser": {
+        "name": "BlackBerry",
+        "version": "7.2.0.0"
+      },
+      "os": {
+        "name": "BlackBerry Tablet OS",
+        "version": "2.0.0"
+      }
+    }
+  },
+  {
+    "device": "BlackBerry 10 — BlackBerry 10 — BlackBerry Z10",
+    "userAgent": "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.1429 Mobile Safari/537.10+",
+    "expectedReport": {
+      "browser": {
+        "name": "BlackBerry",
+        "version": "10.1.0.1429"
+      },
+      "os": {
+        "name": "BlackBerry",
+        "version": "10.1.0.1429"
+      }
+    }
+  },
+  {
     "device": "Opera 9 — Windows",
     "userAgent": "Opera/9.27 (Windows NT 5.1; U; en)",
     "expectedReport": {

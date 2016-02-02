@@ -111,6 +111,10 @@
             }
         }
 
+        if (userAgent.indexOf("BB10") >= 0 || userAgent.indexOf("PlayBook") >= 0 || userAgent.indexOf("BlackBerry") >= 0) {
+            report.browser.name = "BlackBerry";
+        }
+
 
         // extract browser version number from user agent
         match = null;
@@ -158,6 +162,9 @@
             } else {
                 match = userAgent.match(/Opera\/((\d+\.)+\d+)/);
             }
+            break;
+        case "BlackBerry":
+            match = userAgent.match(/Version\/((\d+\.)+\d+)/);
             break;
         default:
             match = userAgent.match(/\/((\d+\.)+\d+)$/);
@@ -271,6 +278,18 @@
             report.os.name = "Android";
         }
 
+        if (userAgent.indexOf("BB10") >= 0) {
+            report.os.name = "BlackBerry";
+        }
+
+        if (userAgent.indexOf("RIM Tablet OS") >= 0) {
+            report.os.name = "BlackBerry Tablet OS";
+        }
+
+        if (userAgent.indexOf("BlackBerry") >= 0) {
+            report.os.name = "BlackBerryOS";
+        }
+
 
         // extract operating system version from user agent
         match = null;
@@ -344,6 +363,13 @@
             break;
         case "Android":
             match = userAgent.match(/(?:Android|Adr)\ ((\d+[._])+\d+)/);
+            break;
+        case "BlackBerry":
+        case "BlackBerryOS":
+            match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            break;
+        case "BlackBerry Tablet OS":
+            match = userAgent.match(/RIM Tablet OS ((\d+\.)+\d+)/);
             break;
         default:
             // no good default behavior

@@ -68,3 +68,13 @@ Firefox for Android
 # Opera version history
 # http://www.opera.com/docs/history/
 ##
+
+##
+# The BlackBerry 10 User Agent String Has Arrived!
+# http://devblog.blackberry.com/2012/08/blackberry-10-user-agent-string/
+##
+
+##
+# How to detect the BlackBerry Browser
+# http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-to-detect-the-BlackBerry-Browser/ta-p/559862
+##
