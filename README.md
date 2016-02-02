@@ -1,11 +1,11 @@
 # browser-report
-Report browser settings like [whatsmybrowser.org](http://www.whatsmybrowser.org) in a JavaScript object.
+Report browser settings like [whatsmybrowser.org][1] in a JavaScript object.
 
 Often, when a visitor to your website reports an issue, it can be difficult or impossible to reproduce the same issue without asking your visitor what software and settings they use.
 
 Lately, in this situation, I ask my visitors to send me the report from whatsmybrowser.org. But then, I realized that most of that information is available, via JavaScript, when the visitor is submitting their issue. So I set out to create a script that would provide the that information.
 
-Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS, take a look at [platform.js](https://github.com/bestiejs/platform.js).
+Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS or other information in the user agent string, then take a look at [platform.js][2] and/or [UAParser.js][7].
 
 # Usage
 Package manager support is planned, but for now load this script into a browser and call `browserReport()` with a callback. Note, some values maybe `null` if the information is not available.
@@ -29,6 +29,7 @@ Note, the remote client IP address is not available in the synchronous function 
 	<script src="browser-report.js"></script>
 	<script>
 		var report = browserReportSync();
+		console.log(report);
 	</script>
 
 ## Report Object Format
@@ -76,15 +77,17 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table](http://caniuse.com/usage-table). Their browser usage table accounts for 97.62% of global usage based on data from [StatCounter GlobalStats](http://gs.statcounter.com/).
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. Their browser usage table accounts for 97.62% of global usage based on data from [StatCounter GlobalStats][4]. See the TODO section for missing coverage test cases.
 
-Current coverage is __97.6%__ = (97.62% - 0.02%)
+Current coverage is __97.6%__ = (97.62% - 0.02%).
 
 # Benchmarks
 
 The script file size is under 3K when gzipped and under 2K when uglified and gzipped.
 
-# Todo
+# TODO
+
+In chronological order (oldest first); not in order of priority.
 
 * add support for bower, component, jam, and spm
 * server side support (node)
@@ -96,9 +99,14 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 * report on the client's Do-Not-Track setting
 * add test cases for
 	* Opera Mobile (0.02%)
-* convert Markdown links to references
+* report if the client supports third-party cookies
 
 #Change Log
+
+*develop*
+
+* converted Markdown links to references
+* updated documentation
 
 *2.2.4 — February 1, 2016*
 
@@ -159,7 +167,16 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 * reports the same browser details as whatsmybrowser.org, except IP address
 
 # Inspiration
-This [Q&A on StackOverflow](http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript) is what got me started on creating this.
+This [Q&A on StackOverflow][5] is what got me started on creating this.
 
 # License
-browser-report is available under the [MIT License](https://github.com/keithws/browser-report/blob/master/LICENSE).
+browser-report is available under the [MIT License][6].
+
+
+  [1]: http://www.whatsmybrowser.org
+  [2]: https://github.com/bestiejs/platform.js
+  [3]: http://caniuse.com/usage-table
+  [4]: http://gs.statcounter.com/
+  [5]: http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
+  [6]: https://github.com/keithws/browser-report/blob/master/LICENSE
+  [7]: https://github.com/faisalman/ua-parser-js
