@@ -9,7 +9,7 @@
     var extractDataFromClient;
 
     extractDataFromClient = function (userAgent) {
-        var report, match, uuid, userAgent;
+        var report, match, uuid;
 
         userAgent = userAgent || navigator.userAgent;
 
@@ -131,6 +131,7 @@
             break;
         case "Firefox for iOS":
             match = userAgent.match(/FxiOS\/((\d+\.)+\d+)/);
+            break;
         case "Edge":
         case "Internet Explorer":
         case "IE Mobile":
