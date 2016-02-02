@@ -83,7 +83,7 @@ Current coverage is __97.6%__ = (97.62% - 0.02%).
 
 # Benchmarks
 
-The script file size is roughly 3K when gzipped and roughly 2K when uglified and gzipped.
+The script file size is under 3K when gzipped and under 2K when uglified and gzipped.
 
 # TODO
 
@@ -103,7 +103,7 @@ In chronological order (oldest first); not in order of priority.
 
 #Change Log
 
-*develop*
+*HEAD*
 
 * converted Markdown links to references
 * updated documentation
