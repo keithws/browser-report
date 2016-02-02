@@ -100,7 +100,7 @@ The script file size is under 3K when gzipped and under 2K when uglified and gzi
 
 #Change Log
 
-*develop — February 1, 2016*
+*2.2.4 — February 1, 2016*
 
 * added test cases and detection for
 	* Opera Mini
