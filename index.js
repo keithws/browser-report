@@ -1,8 +1,46 @@
 /*
-* Report browser settings like whatsmybrowser.org
-* Inspired by
-* http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
-*/
+ * helper function to provide Object.defineProperty function to older clients
+ */
+(function () {
+    "use strict";
+
+    var definePropertyNative;
+
+    try {
+        Object.defineProperty({}, "x", {});
+    } catch (e) {
+        definePropertyNative = Object.defineProperty;
+        Object.defineProperty = function (obj, prop, descriptor) {
+
+            if (obj.hasOwnProperty("nodeType")) {
+                obj = definePropertyNative(obj, prop, descriptor);
+            } else {
+                if (descriptor.hasOwnProperty("get")) {
+                    if (Object.prototype.__defineGetter__) {
+                        Object.prototype.__defineGetter__.call(obj, prop, descriptor.get);
+                    }
+                }
+                if (descriptor.hasOwnProperty("set")) {
+                    if (Object.prototype.__defineSetter__) {
+                        Object.prototype.__defineSetter__.call(obj, prop, descriptor.set);
+                    }
+                }
+                if (descriptor.hasOwnProperty("value")) {
+                    obj[prop] = descriptor.value;
+                }
+            }
+
+            return obj;
+        };
+    }
+}());
+
+
+/*
+ * Report browser settings like whatsmybrowser.org
+ * Inspired by
+ * http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
+ */
 (function () {
     "use strict";
 
@@ -177,8 +215,8 @@
         }
 
         // pull in browser window size from the visual viewport
-        report.viewport.width = window.innerWidth;
-        report.viewport.height = window.innerHeight;
+        report.viewport.width = window.innerWidth || document.documentElement.clientWidth;
+        report.viewport.height = window.innerHeight || document.documentElement.clientHeight;
 
         // deprecate report.browser.size
         Object.defineProperty(report.browser, "size", {
