@@ -103,10 +103,12 @@ In chronological order (oldest first); not in order of priority.
 
 #Change Log
 
-*HEAD*
+*2.2.5 — February 2, 2016*
 
 * converted Markdown links to references
 * updated documentation
+* fixed bugs in IE8
+* updated sample to run in IE 8, 7, and 6
 
 *2.2.4 — February 1, 2016*
 

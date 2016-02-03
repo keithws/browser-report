@@ -1,6 +1,6 @@
 {
   "name": "browser-report",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "Report browser settings like whatsmybrowser.org.",
   "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
   "main": "index.js",
