@@ -7,10 +7,11 @@
   "scripts": {
     "lint": "jslint --browser --bitwise --stupid --nomen -- index.js",
     "test": "npm run lint",
+    "prebuild": "npm run test",
     "build": "cp index.js dist/browser-report.js",
     "postbuild": "npm run uglify && npm run gzip",
     "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
-    "gzip": "gzip -k dist/browser-report.js dist/browser-report.min.js"
+    "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
   },
   "repository": {
     "type": "git",
