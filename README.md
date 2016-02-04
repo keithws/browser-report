@@ -77,9 +77,9 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. Their browser usage table accounts for 97.62% of global usage based on data from [StatCounter GlobalStats][4]. See the TODO section for missing coverage test cases.
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of February 4, 2016, their browser usage table accounts for 97.9% of global usage based on data from [StatCounter GlobalStats][4]. Note, see the TODO section for which browsers are missing test cases.
 
-Current coverage is __97.6%__ = (97.62% - 0.02%).
+Current coverage is __97.88%__ = (97.9% - 0.02%).
 
 # Benchmarks
 
