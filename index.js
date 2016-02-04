@@ -1,42 +1,4 @@
 /*
- * helper function to provide Object.defineProperty function to older clients
- */
-(function () {
-    "use strict";
-
-    var definePropertyNative;
-
-    try {
-        Object.defineProperty({}, "x", {});
-    } catch (e) {
-        definePropertyNative = Object.defineProperty;
-        Object.defineProperty = function (obj, prop, descriptor) {
-
-            if (obj.hasOwnProperty("nodeType")) {
-                obj = definePropertyNative(obj, prop, descriptor);
-            } else {
-                if (descriptor.hasOwnProperty("get")) {
-                    if (Object.prototype.__defineGetter__) {
-                        Object.prototype.__defineGetter__.call(obj, prop, descriptor.get);
-                    }
-                }
-                if (descriptor.hasOwnProperty("set")) {
-                    if (Object.prototype.__defineSetter__) {
-                        Object.prototype.__defineSetter__.call(obj, prop, descriptor.set);
-                    }
-                }
-                if (descriptor.hasOwnProperty("value")) {
-                    obj[prop] = descriptor.value;
-                }
-            }
-
-            return obj;
-        };
-    }
-}());
-
-
-/*
  * Report browser settings like whatsmybrowser.org
  * Inspired by
  * http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
@@ -44,7 +6,7 @@
 (function () {
     "use strict";
 
-    var extractDataFromClient;
+    var extractDataFromClient, definePropertySupported;
 
     extractDataFromClient = function (userAgent) {
         var report, match, uuid;
@@ -218,13 +180,40 @@
         report.viewport.width = window.innerWidth || document.documentElement.clientWidth;
         report.viewport.height = window.innerHeight || document.documentElement.clientHeight;
 
-        // deprecate report.browser.size
-        Object.defineProperty(report.browser, "size", {
-            get: function () {
-                console.warn("browser.size is deprecated; use viewport.width and viewport.height");
-                return report.viewport.width + " x " + report.viewport.height;
+
+        /*
+         * test if Object.defineProperty function is fully supported
+         */
+        try {
+            Object.defineProperty({}, "x", {});
+            definePropertySupported = true;
+        } catch (e) {
+            definePropertySupported = false;
+        }
+
+
+        /*
+         * helper function to safely log warning messages
+         */
+        function warning(msg) {
+            if (window.console) {
+                if (console.warn) {
+                    console.warn(msg);
+                } else {
+                    console.log(msg);
+                }
             }
-        });
+        }
+
+        // deprecate report.browser.size
+        if (definePropertySupported) {
+            Object.defineProperty(report.browser, "size", {
+                get: function () {
+                    warning("browser.size is deprecated; use viewport.width and viewport.height");
+                    return report.viewport.width + " x " + report.viewport.height;
+                }
+            });
+        }
 
         // pull in raw values for layout viewport
         report.viewport.layout.width = document.documentElement.clientWidth;
@@ -435,20 +424,24 @@
         }
 
         // deprecate report.screen.size
-        Object.defineProperty(report.screen, "size", {
-            get: function () {
-                console.warn("screen.size is deprecated; use screen.width and screen.height");
-                return report.screen.width + " x " + report.screen.height;
-            }
-        });
+        if (definePropertySupported) {
+            Object.defineProperty(report.screen, "size", {
+                get: function () {
+                    warning("screen.size is deprecated; use screen.width and screen.height");
+                    return report.screen.width + " x " + report.screen.height;
+                }
+            });
+        }
 
         // deprecate report.screen.resolution
-        Object.defineProperty(report.screen, "resolution", {
-            get: function () {
-                console.warn("screen.resolution is deprecated; multiply screen.width and screen.height by screen.dppx");
-                return (report.screen.dppx * report.screen.width) + " x " + (report.screen.dppx * report.screen.height);
-            }
-        });
+        if (definePropertySupported) {
+            Object.defineProperty(report.screen, "resolution", {
+                get: function () {
+                    warning("screen.resolution is deprecated; multiply screen.width and screen.height by screen.dppx");
+                    return (report.screen.dppx * report.screen.width) + " x " + (report.screen.dppx * report.screen.height);
+                }
+            });
+        }
 
 
         // are web sockets supported
