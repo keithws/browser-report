@@ -103,6 +103,13 @@ In chronological order (oldest first); not in order of priority.
 
 #Change Log
 
+*2.2.6 — February 4, 2016*
+
+* Updated browser usage stats
+* Updated benchmarks
+* Updated build to run tests before build
+* Simplified code for deprecated values
+
 *2.2.5 — February 2, 2016*
 
 * converted Markdown links to references
