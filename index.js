@@ -224,31 +224,31 @@
 
 
         // are cookies enabled
-        report.cookies = !!navigator.cookieEnabled;
+        // can't trust this value (Microsoft Edge lies)
+        // report.cookies = !!navigator.cookieEnabled;
 
-        // double check if cookies are enabled
-        if (!report.cookies) {
+        // truely check if cookies are enabled
+        // generate UUID for cookie name
+        uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
+        uuid = uuid.replace(/[xy]/g, function (c) {
+            var r, v;
 
-            // generate UUID
-            uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-            uuid = uuid.replace(/[xy]/g, function (c) {
-                var r, v;
+            r = Math.random() * 16 | 0;
+            v = c === 'x'
+                ? r
+                : (r & 0x3 | 0x8);
 
-                r = Math.random() * 16 | 0;
-                v = c === 'x'
-                    ? r
-                    : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+        document.cookie = uuid;
 
-                return v.toString(16);
-            });
-            document.cookie = uuid;
-
-            if (document.cookie.indexOf(uuid) >= 0) {
-                report.cookies = true;
-            }
-
-            document.cookie = uuid + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        if (document.cookie.indexOf(uuid) >= 0) {
+            report.cookies = true;
+        } else {
+            report.cookies = false;
         }
+        // delete temporoary cookie
+        document.cookie = uuid + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
 
         // check plugins

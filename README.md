@@ -103,6 +103,10 @@ In chronological order (oldest first); not in order of priority.
 
 #Change Log
 
+*2.2.7 – July 11, 2016*
+
+* updated cookie detection to workaround Microsoft Edge behavior
+
 *2.2.6 — February 4, 2016*
 
 * Updated browser usage stats
