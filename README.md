@@ -3,9 +3,9 @@ Report browser settings like [whatsmybrowser.org][1] in a JavaScript object.
 
 Often, when a visitor to your website reports an issue, it can be difficult or impossible to reproduce the same issue without asking your visitor what software and settings they use.
 
-Lately, in this situation, I ask my visitors to send me the report from whatsmybrowser.org. But then, I realized that most of that information is available, via JavaScript, when the visitor is submitting their issue. So I set out to create a script that would provide the that information.
+Lately, in this situation, I ask my visitors to send me the report from whatsmybrowser.org. But then, I realized that most of that information is available, via JavaScript, by parsing the user agent when the visitor is submitting their issue. So I set out to create a script that would provide that information.
 
-Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS or other information in the user agent string, then take a look at [platform.js][2] and/or [UAParser.js][7].
+Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported, see the [Coverage](#coverage) section below for more details. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS or other information in the user agent string, then take a look at [platform.js][2] and/or [UAParser.js][7].
 
 # Usage
 Package manager support is planned, but for now load this script into a browser and call `browserReport()` with a callback. Note, some values maybe `null` if the information is not available.
@@ -79,7 +79,7 @@ The report object has the following keys and value types.
 
 The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of February 4, 2016, their browser usage table accounts for 97.9% of global usage based on data from [StatCounter GlobalStats][4]. Note, see the TODO section for which browsers are missing test cases.
 
-Current coverage is __97.88%__ = (97.9% - 0.02%).
+Coverage, as of February 4, 2016, is __97.88%__ = (97.9% - 0.02%).
 
 # Benchmarks
 
@@ -100,6 +100,7 @@ In chronological order (oldest first); not in order of priority.
 * add test cases for
 	* Opera Mobile (0.02%)
 * report if the client supports third-party cookies
+* check caniuse usage table and update tests and coverage
 
 #Change Log
 
