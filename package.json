@@ -8,7 +8,7 @@
         "pretest": "eslint \"**/*.js\"",
         "test": "open file://`find $PWD/test -type f -name '*.html'`",
         "prepublish": "npm run cp && npm run uglify",
-        "cp": "cp index.js dist/browser-report.js",
+        "cp": "cp browser-report.js dist/browser-report.js",
         "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
         "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
     },

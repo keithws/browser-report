@@ -8,29 +8,62 @@ Lately, in this situation, I ask my visitors to send me the report from whatsmyb
 Note, this is meant for reporting and not for application logic; your application should use feature detection, not browser detection. Therefore, only the most common browser names and OS names are reported, see the [Coverage](#coverage) section below for more details. The full user agent string is always provided and it can help you identify any browser. If you need to report on every browser and OS or other information in the user agent string, then take a look at [platform.js][2] and/or [UAParser.js][7].
 
 # Usage
-Package manager support is planned, but for now load this script into a browser and call `browserReport()` with a callback. Note, some values maybe `null` if the information is not available.
+You can load `browser-report` via plain script tag, AMD loader or module bundler (Webpack). In every environment you're provided with two functions
 
-## Asynchronous Usage
+  1. `browserReport()`
+  2. `browserReportSync()`
 
-    <script src="browser-report.js"></script>
-    <script>
-        browserReport(function (err, report) {
-            if (err) {
-                throw err;
-            }
-            console.log(report);
-        });
-    </script>
+Note, some values maybe `null` if the information is not available.
+
+## Asynchronous Usage (via script tag)
+
+```html
+	<script src="browser-report.js"></script>
+	<script>
+		browserReport(function (err, report) {
+			if (err) {
+				throw err;
+			}
+			console.log(report);
+		});
+	</script>
+```
 
 ## Synchronous Usage
 
 Note, the remote client IP address is not available in the synchronous function call.
 
-    <script src="browser-report.js"></script>
-    <script>
-        var report = browserReportSync();
-        console.log(report);
-    </script>
+```html
+	<script src="browser-report.js"></script>
+	<script>
+		var report = browserReportSync();
+		console.log(report);
+	</script>
+```
+
+## AMD
+```html
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+	<script>
+		requirejs.config({
+		  bundles: {
+		    'browser-report': ['browserReport', 'browserReportSync'],  // indicate that browser-report.js is hosting both functions
+		  }
+		});
+		requirejs(['browserReport', 'browserReportSync'], function(browserReport, browserReportSync) {
+			// your functions are now available
+		});
+```
+
+## Module bundler
+
+Install module via `NPM` or `Yarn`. Then just import your functions (ES6+ code):
+
+```js
+import browserReport, { browserReportSync } from 'browser-report';
+
+// your functions are now available
+```
 
 ## Report Object Format
 

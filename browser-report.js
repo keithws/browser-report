@@ -3,13 +3,29 @@
  * Inspired by
  * http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
  */
-(function () {
+(function (root, factory) {
     "use strict";
 
-    var extractDataFromClient, definePropertySupported;
+    if (typeof define === "function" && define.amd) {
+        // AMD. Register as an anonymous module.
+        define("browserReportSync", [], factory().browserReportSync);
+        define([], factory);
 
-    extractDataFromClient = function (userAgent) {
-        var report, match, uuid;
+    } else if (typeof module === "object" && module.exports) {
+        // CommonJS-like environments that support module.exports, like Node.
+        module.exports = factory();
+
+    } else {
+        // Browser globals (root is window)
+        root.browserReport = factory();
+        root.browserReportSync = root.browserReport.sync;
+    }
+
+}(this, function () {
+    "use strict";
+
+    var extractDataFromClient = function (userAgent) {
+        var definePropertySupported, report, match, uuid;
 
         userAgent = userAgent || navigator.userAgent;
 
@@ -470,12 +486,11 @@
         return report;
     };
 
-
     /*
      * asynchronous version includes the remote client IP address
      * uses ipify.org API
      */
-    window.browserReport = window.browserReport || function (callback) {
+    var browserReport = function (callback) {
         var report, newScriptTag, existingScriptTag;
 
         report = extractDataFromClient();
@@ -495,15 +510,13 @@
 
         // report on errors
         newScriptTag.onerror = callback;
-
     };
 
-
-    /*
-     * synchronous version returns report immediately
-     * but does not include the remote client IP address
-     */
-    window.browserReportSync = window.browserReportSync || function (userAgent) {
+    var browserReportSync = function (userAgent) {
         return extractDataFromClient(userAgent);
     };
-}());
+
+    browserReport.sync = browserReport.browserReportSync = browserReportSync;
+
+    return browserReport;
+}));
