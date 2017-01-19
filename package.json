@@ -1,32 +1,32 @@
 {
-  "name": "browser-report",
-  "version": "2.2.7",
-  "description": "Report browser settings like whatsmybrowser.org.",
-  "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
-  "main": "index.js",
-  "scripts": {
-    "lint": "jslint --browser --bitwise --stupid --nomen -- index.js",
-    "test": "npm run lint",
-    "prebuild": "npm run test",
-    "build": "cp index.js dist/browser-report.js",
-    "postbuild": "npm run uglify && npm run gzip",
-    "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
-    "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/keithws/browser-report.git"
-  },
-  "author": "Keith W. Shaw",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/keithws/browser-report/issues"
-  },
-  "homepage": "https://github.com/keithws/browser-report#readme",
-  "devDependencies": {
-    "jslint": "^0.9.6",
-    "mocha": "^2.4.5",
-    "should": "^8.2.1",
-    "uglify-js": "^2.6.1"
-  }
+    "name": "browser-report",
+    "version": "2.2.7",
+    "description": "Report browser settings like whatsmybrowser.org.",
+    "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
+    "main": "index.js",
+    "scripts": {
+        "lint": "jslint --browser --bitwise --stupid --nomen -- index.js",
+        "test": "npm run lint",
+        "prebuild": "npm run test",
+        "build": "cp index.js dist/browser-report.js",
+        "postbuild": "npm run uglify && npm run gzip",
+        "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
+        "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/keithws/browser-report.git"
+    },
+    "author": "Keith W. Shaw",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/keithws/browser-report/issues"
+    },
+    "homepage": "https://github.com/keithws/browser-report#readme",
+    "devDependencies": {
+        "jslint": "^0.9.6",
+        "mocha": "^2.4.5",
+        "should": "^8.2.1",
+        "uglify-js": "^2.6.1"
+    }
 }

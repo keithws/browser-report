@@ -12,68 +12,68 @@ Package manager support is planned, but for now load this script into a browser 
 
 ## Asynchronous Usage
 
-	<script src="browser-report.js"></script>
-	<script>
-		browserReport(function (err, report) {
-			if (err) {
-				throw err;
-			}
-			console.log(report);
-		});
-	</script>
+    <script src="browser-report.js"></script>
+    <script>
+        browserReport(function (err, report) {
+            if (err) {
+                throw err;
+            }
+            console.log(report);
+        });
+    </script>
 
 ## Synchronous Usage
 
 Note, the remote client IP address is not available in the synchronous function call.
 
-	<script src="browser-report.js"></script>
-	<script>
-		var report = browserReportSync();
-		console.log(report);
-	</script>
+    <script src="browser-report.js"></script>
+    <script>
+        var report = browserReportSync();
+        console.log(report);
+    </script>
 
 ## Report Object Format
 
 The report object has the following keys and value types.
 
-	{
-		"browser": {
-			"name": (string),
-			"version": (string)
-		},
-		"cookies": (boolean),
-		"flash": {
-			"version": (string)
-		},
-		"ip": (string),
-		"java": {
-			"version": (string)
-		},
-		"lang": (array || string),
-		"os": {
-			"name": (string),
-			"version": (string)
-		},
-		"screen": {
-			"colors": (number),
-			"dppx": (number),
-			"height": (number),
-			"width": (number)
-		},
-		"scripts": (boolean),
-		"timestamp": (string),
-		"userAgent": (string),
-		"viewport": {
-			"height": (number),
-			"layout": {
-				"height": (number),
-				"width": (number)
-			}
-			"width": (number),
-			"zoom": (number)
-		}
-		"websockets": (boolean)
-	}
+    {
+        "browser": {
+            "name": (string),
+            "version": (string)
+        },
+        "cookies": (boolean),
+        "flash": {
+            "version": (string)
+        },
+        "ip": (string),
+        "java": {
+            "version": (string)
+        },
+        "lang": (array || string),
+        "os": {
+            "name": (string),
+            "version": (string)
+        },
+        "screen": {
+            "colors": (number),
+            "dppx": (number),
+            "height": (number),
+            "width": (number)
+        },
+        "scripts": (boolean),
+        "timestamp": (string),
+        "userAgent": (string),
+        "viewport": {
+            "height": (number),
+            "layout": {
+                "height": (number),
+                "width": (number)
+            }
+            "width": (number),
+            "zoom": (number)
+        }
+        "websockets": (boolean)
+    }
 
 # Coverage
 
@@ -91,14 +91,14 @@ In chronological order (oldest first); not in order of priority.
 
 * add support for bower, component, jam, and spm
 * server side support (node)
-	* not all information is available server side
-	* but a lot of information can be extracted from the user agent
-	* and the remote IP address is available
+    * not all information is available server side
+    * but a lot of information can be extracted from the user agent
+    * and the remote IP address is available
 * report on other/all plugins
 * report on value for font size of root element
 * report on the client's Do-Not-Track setting
 * add test cases for
-	* Opera Mobile (0.02%)
+    * Opera Mobile (0.02%)
 * report if the client supports third-party cookies
 * check caniuse usage table and update tests and coverage
 
@@ -125,17 +125,17 @@ In chronological order (oldest first); not in order of priority.
 *2.2.4 — February 1, 2016*
 
 * added test cases and detection for
-	* Opera Mini
-	* Opera 15 and above
-	* Opera 12 and below
-	* Opera 9 and below
-	* BlackBerry Browser 6, 7, and 10
+    * Opera Mini
+    * Opera 15 and above
+    * Opera 12 and below
+    * Opera 9 and below
+    * BlackBerry Browser 6, 7, and 10
 
 *2.2.3 – January 29, 2016*
 
 * added test cases
-	* Firefox on Android and iOS
-	* UC Browser for Android
+    * Firefox on Android and iOS
+    * UC Browser for Android
 * improved browser and os detection
 
 *2.2.2 – January 29, 2016*
