@@ -3,12 +3,12 @@
     "version": "2.2.7",
     "description": "Report browser settings like whatsmybrowser.org.",
     "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
-    "main": "index.js",
+    "main": "./dist/browser-report.js",
     "scripts": {
-        "test": "eslint \"**/*.js\" && open file://`find $PWD/test -type f -name '*.html'`",
-        "prebuild": "npm run test",
-        "build": "cp index.js dist/browser-report.js",
-        "postbuild": "npm run uglify && npm run gzip",
+        "pretest": "eslint \"**/*.js\"",
+        "test": "open file://`find $PWD/test -type f -name '*.html'`",
+        "prepublish": "npm run cp && npm run uglify",
+        "cp": "cp index.js dist/browser-report.js",
         "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
         "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
     },
