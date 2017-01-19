@@ -103,9 +103,15 @@
             report.browser.name = "UC Browser for Android";
         }
 
+        if (userAgent.indexOf("SamsungBrowser") >= 0) {
+            report.browser.name = "Samsung Internet";
+        }
+
         if (userAgent.indexOf("OPR") >= 0 || userAgent.indexOf("Opera") >= 0) {
             if (userAgent.indexOf("Opera Mini") >= 0) {
                 report.browser.name = "Opera Mini";
+            } else if (userAgent.indexOf("Opera Mobi") >= 0 || userAgent.indexOf("Opera Tablet") >= 0 || userAgent.indexOf("Mobile") >= 0) {
+                report.browser.name = "Opera Mobile";
             } else {
                 report.browser.name = "Opera";
             }
@@ -151,6 +157,9 @@
             break;
         case "UC Browser for Android":
             match = userAgent.match(/UCBrowser\/((\d+\.)+\d+)/);
+            break;
+        case "Samsung Internet":
+            match = userAgent.match(/SamsungBrowser\/((\d+\.)+\d+)/);
             break;
         case "Opera Mini":
             match = userAgent.match(/Opera Mini\/((\d+\.)+\d+)/);

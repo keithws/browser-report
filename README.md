@@ -77,9 +77,9 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of February 4, 2016, their browser usage table accounts for 97.9% of global usage based on data from [StatCounter GlobalStats][4]. Note, see the TODO section for which browsers are missing test cases.
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of January 18, 2017, their browser usage table accounts for 98.19% of global usage based on data from [StatCounter GlobalStats][4].
 
-Coverage, as of February 4, 2016, is __97.88%__ = (97.9% - 0.02%).
+Coverage, as of January 18, 2017, matches at __98.19%__
 
 # Benchmarks
 
@@ -89,7 +89,7 @@ The script file size is roughly 3K when gzipped and roughly 2K when uglified and
 
 In chronological order (oldest first); not in order of priority.
 
-* add support for bower, component, jam, and spm
+* add module support for node, es2016, commonJS, and bower
 * server side support (node)
     * not all information is available server side
     * but a lot of information can be extracted from the user agent
@@ -97,12 +97,21 @@ In chronological order (oldest first); not in order of priority.
 * report on other/all plugins
 * report on value for font size of root element
 * report on the client's Do-Not-Track setting
-* add test cases for
-    * Opera Mobile (0.02%)
 * report if the client supports third-party cookies
 * check caniuse usage table and update tests and coverage
+* add more test cases for older versions of browsers
 
 #Change Log
+
+*2.2.8 – January 18, 2017*
+
+* added test cases for detecting Opera Mobile
+* added test cases for detecting Samsung Internet
+* added test cases for detecting UC Browser 11
+* added test case for detecting Safari on iOS 10
+* added test case for detecting Opera 42 on Windows
+* added test case for detecting Edge 14 on Windows
+* updated test cases for major browsers to latest versions
 
 *2.2.7 – July 11, 2016*
 
