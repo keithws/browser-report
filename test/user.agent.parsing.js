@@ -1,4 +1,4 @@
-
+/* global describe, it, should, expectedResults */
 
 describe("User Agent Matching", function () {
     expectedResults.forEach(function (item) {

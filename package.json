@@ -5,8 +5,7 @@
     "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
     "main": "index.js",
     "scripts": {
-        "lint": "jslint --browser --bitwise --stupid --nomen -- index.js",
-        "test": "npm run lint",
+        "test": "eslint \"**/*.js\" && open file://`find $PWD/test -type f -name '*.html'`",
         "prebuild": "npm run test",
         "build": "cp index.js dist/browser-report.js",
         "postbuild": "npm run uglify && npm run gzip",
@@ -24,7 +23,7 @@
     },
     "homepage": "https://github.com/keithws/browser-report#readme",
     "devDependencies": {
-        "jslint": "^0.9.6",
+        "eslint": "^3.13.1",
         "mocha": "^2.4.5",
         "should": "^8.2.1",
         "uglify-js": "^2.6.1"

@@ -195,6 +195,7 @@
         /*
          * helper function to safely log warning messages
          */
+        /* eslint-disable no-console */
         function warning(msg) {
             if (window.console) {
                 if (console.warn) {
@@ -204,6 +205,7 @@
                 }
             }
         }
+        /* eslint-enable no-console */
 
         // deprecate report.browser.size
         if (definePropertySupported) {
@@ -234,7 +236,7 @@
             var r, v;
 
             r = Math.random() * 16 | 0;
-            v = c === 'x'
+            v = c === "x"
                 ? r
                 : (r & 0x3 | 0x8);
 
@@ -248,7 +250,7 @@
             report.cookies = false;
         }
         // delete temporoary cookie
-        document.cookie = uuid + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        document.cookie = uuid + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 
 
         // check plugins

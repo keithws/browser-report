@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: "off" */
 var expectedResults = [
     {
         "device": "Edge 13",
