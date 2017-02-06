@@ -100,6 +100,8 @@ In chronological order (oldest first); not in order of priority.
 * report if the client supports third-party cookies
 * check caniuse usage table and update tests and coverage
 * add more test cases for older versions of browsers
+* document the logic for which OSes will be properly detected
+* add tests for operating systems
 
 #Change Log
 
