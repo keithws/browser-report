@@ -329,6 +329,9 @@
             report.os.name = "BlackBerryOS";
         }
 
+        if (userAgent.indexOf("CrOS") >= 0) {
+            report.os.name = "Chrome OS";
+        }
 
         // extract operating system version from user agent
         match = null;
