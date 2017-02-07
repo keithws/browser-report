@@ -211,6 +211,34 @@ var expectedResults = [
         }
     },
     {
+        "device": "Chrome 55 — Chromebook",
+        "userAgent": "Mozilla/5.0 (X11; CrOS x86_64 8872.76.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.105 Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome",
+                "version": "55.0.2883.105"
+            },
+            "os": {
+                "name": "Chrome OS",
+                "version": "55.0.2883.105"
+            }
+        }
+    },
+    {
+        "device": "Chrome 30 — Chromebook",
+        "userAgent": "Mozilla/5.0 (X11; CrOS armv7l 4537.56.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.38 Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome",
+                "version": "30.0.1599.38"
+            },
+            "os": {
+                "name": "Chrome OS",
+                "version": "30.0.1599.38"
+            }
+        }
+    },
+    {
         "device": "Safari",
         "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4",
         "expectedReport": {
