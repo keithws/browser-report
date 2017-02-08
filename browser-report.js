@@ -497,7 +497,7 @@
 
         // use ipify.org to get the remote client ip address
         // define function to handle data from ipify.org
-        window.getip = window.getip || function (data) {
+        window.getip = function (data) {
             report.ip = data.ip;
             callback(null, report);
         };
