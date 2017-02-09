@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Example Usage of browser-report</title>
+    <style>
+    body {
+        font: message-box;
+    }
+    h1 {
+        font-size: 1em;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    td {
+        border-bottom: 1pt solid gray;
+        padding: calc(1.25em - 0.5pt) 0;
+        padding-left: 1ex;
+    }
+    td:first-child {
+        padding-left: 0;
+    }
+    </style>
+</head>
+<body>
+    <h1>
+        Example Usage of browser-report
+    </h1>
+    <h2>
+        You are using {{browser.name}} {{browser.majorVersion}}.
+    </h2>
+    <h3>
+        Browser Details
+    </h3>
+    <p>
+        We’ve detected the following details about your browser.
+    </p>
+    <table>
+        <tr>
+            <td>
+                Operating System
+            </td>
+            <td>
+                {{os.name}} {{os.version}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IP Address
+            </td>
+            <td>
+                {{ip}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                JavaScript Enabled
+            </td>
+            <td>
+                {{scripts}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cookies Enabled
+            </td>
+            <td>
+                {{cookies}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Flash Version
+            </td>
+            <td>
+                {{flash.version}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Java Version
+            </td>
+            <td>
+                {{java.version}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                WebSockets Supported
+            </td>
+            <td>
+                {{websockets}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Browser Size
+            </td>
+            <td>
+                {{viewport.width}} x {{viewport.height}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Screen Size
+            </td>
+            <td>
+                {{screen.width}} x {{screen.height}} @ {{screen.dppx}}x
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Color Depth
+            </td>
+            <td>
+                {{screen.colors}}
+            </td>
+        </tr>
+    </table>
+    <p class="user-agent">
+        Your full user agent string is:<br>
+        {{userAgent}}
+    </p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+    <script>
+    /*
+     * pure JS implementation of forEach
+     * because I hate not having it
+     */
+    // Production steps of ECMA-262, Edition 5, 15.4.4.18
+    // Reference: http://es5.github.io/#x15.4.4.18
+    if (!Array.prototype.forEach) {
+
+        Array.prototype.forEach = function(callback, thisArg) {
+
+            var T, k;
+
+            if (this == null) {
+                throw new TypeError(' this is null or not defined');
+            }
+
+            // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+            var O = Object(this);
+
+            // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
+            // 3. Let len be ToUint32(lenValue).
+            var len = O.length >>> 0;
+
+            // 4. If IsCallable(callback) is false, throw a TypeError exception.
+            // See: http://es5.github.com/#x9.11
+            if (typeof callback !== "function") {
+                throw new TypeError(callback + ' is not a function');
+            }
+
+            // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+            if (arguments.length > 1) {
+                T = thisArg;
+            }
+
+            // 6. Let k be 0
+            k = 0;
+
+            // 7. Repeat, while k less than len
+            while (k < len) {
+
+                var kValue;
+
+                // a. Let Pk be ToString(k).
+                //     This is implicit for LHS operands of the in operator
+                // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.
+                //     This step can be combined with c
+                // c. If kPresent is true, then
+                if (k in O) {
+
+                    // i. Let kValue be the result of calling the Get internal method of O with argument Pk.
+                    kValue = O[k];
+
+                    // ii. Call the Call internal method of callback with T as the this value and
+                    // argument list containing kValue, k, and O.
+                    callback.call(T, kValue, k, O);
+                }
+                // d. Increase k by 1.
+                k++;
+            }
+            // 8. return undefined
+        };
+    }
+    </script>
+    <script>
+        var sampleReport;
+
+        requirejs.config({
+          bundles: {
+              "browser-report": ["browserReport", "browserReportSync"],  // indicate that `browserReport` and `browserReportSync` are both in browser-report.js
+          }
+        });
+        requirejs(["browserReport", "browserReportSync"], function(browserReport, browserReportSync) {
+            browserReport(function (err, report) {
+                "use strict";
+
+                var h2, text, tds, p;
+
+                if (err) {
+                    throw err;
+                }
+
+                // save to global variable for inspection by developers
+                sampleReport = report;
+
+                // add some custom data to the report
+                if (report.browser.version) {
+                    report.browser.majorVersion = report.browser.version.split(".")[0];
+                }
+
+                // update h2 with browser name and major version
+                if (document.querySelector) {
+                    h2 = document.querySelector("h2");
+                } else {
+                    h2 = document.getElementsByTagName("h2")[0];
+                }
+                text = h2.innerHTML;
+                text = text.replace("{{browser.name}}", report.browser.name);
+                text = text.replace("{{browser.majorVersion}}", report.browser.majorVersion);
+                h2.innerHTML = text;
+
+                // update table cells with browser details
+                if (document.querySelectorAll) {
+                    tds = document.querySelectorAll("td");
+                } else {
+                    tds = document.getElementsByTagName("td");
+                }
+                Array.prototype.forEach.call(tds, function (td) {
+                    var t, matches;
+
+                    t = td.innerHTML;
+                    matches = t.match(/\{\{[\w.]+?\}\}/g);
+
+                    if (matches) {
+                        matches.forEach(function (match) {
+                            var key, k1, k2, v;
+
+                            key = match.slice(2, -2);
+                            k1 = key.split(".")[0];
+                            k2 = key.split(".")[1];
+
+                            if (k1 && k2) {
+                                v = report[k1][k2] || "n/a";
+                            } else {
+                                v = report[k1] || "n/a";
+                            }
+
+                            if (v === true) {
+                                v = "Yes";
+                            }
+                            if (v === false) {
+                                v = "No";
+                            }
+
+                            t = t.replace(match, v);
+                        });
+                    }
+                    td.innerHTML = t;
+                });
+
+                // update user-agent element with full user agent string
+                if (document.querySelector) {
+                    p = document.querySelector("p.user-agent");
+                } else {
+                    var elements = document.getElementsByTagName("p");
+                    Array.prototype.forEach.call(elements, function (element) {
+                        if (element.className.match("user-agent")) {
+                            p = element;
+                        }
+                    });
+                }
+                p.innerHTML = p.innerHTML.replace("{{userAgent}}", report.userAgent);
+            });
+        });
+    </script>
+</body>
+</html>
