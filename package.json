@@ -3,7 +3,7 @@
     "version": "2.2.8",
     "description": "Report browser settings like whatsmybrowser.org.",
     "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
-    "main": "./dist/browser-report.js",
+    "main": "./browser-report.js",
     "scripts": {
         "pretest": "eslint \"**/*.js\"",
         "test": "open file://`find $PWD/test -type f -name '*.html'`",
