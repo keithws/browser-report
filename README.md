@@ -83,6 +83,14 @@ The report object has the following keys and value types.
         "websockets": (boolean)
     }
 
+## TypeScript Usage
+
+import 'browser-report';
+
+window.browserReport((error, result) => {
+    console.log(result.ip + ' ' + result.browser.name);
+});
+
 # Coverage
 
 The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of January 18, 2017, their browser usage table accounts for 98.19% of global usage based on data from [StatCounter GlobalStats][4].
@@ -115,6 +123,7 @@ In chronological order (oldest first); not in order of priority.
 
 *2.2.9 – June 27, 2017*
 * added extended country info from freegeoip
+* added typescript definition
 
 *2.2.8 – January 18, 2017*
 
