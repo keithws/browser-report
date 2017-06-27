@@ -46,6 +46,14 @@ The report object has the following keys and value types.
             "version": (string)
         },
         "ip": (string),
+        "country": {
+            "name": (string),
+            "code": (string),
+            "city": (string),
+            "latitude" : (string),
+            "longitude": (string),
+            "timezone": (string)
+        },
         "java": {
             "version": (string)
         },
@@ -104,6 +112,9 @@ In chronological order (oldest first); not in order of priority.
 * add tests for operating systems
 
 #Change Log
+
+*2.2.9 – June 27, 2017*
+* added extended country info from freegeoip
 
 *2.2.8 – January 18, 2017*
 
