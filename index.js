@@ -503,7 +503,7 @@
 
         // inject script tag get JSONP response from freegeoip.net
         newScriptTag = document.createElement("script");
-        newScriptTag.src = "http://freegeoip.net/json/?callback=geoip";
+        newScriptTag.src = "https://freegeoip.net/json/?callback=geoip";
         existingScriptTag = document.getElementsByTagName("script")[0];
         existingScriptTag.parentNode.insertBefore(newScriptTag, existingScriptTag);
 
