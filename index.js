@@ -467,8 +467,8 @@
         report.websockets = !!window.WebSocket;
 
 
-        // preferred language(s) for displaying pages
-        report.lang = navigator.languages || navigator.language;
+        // preferred languages for displaying pages
+        report.lang = navigator.languages || [navigator.language];
 
 
         // local date, time, and time zone

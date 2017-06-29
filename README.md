@@ -57,7 +57,7 @@ The report object has the following keys and value types.
         "java": {
             "version": (string)
         },
-        "lang": (array || string),
+        "lang": (array),
         "os": {
             "name": (string),
             "version": (string)
@@ -85,11 +85,11 @@ The report object has the following keys and value types.
 
 ## TypeScript Usage
 
-import 'browser-report';
+    import 'browser-report';
 
-window.browserReport((error, result) => {
-    console.log(result.ip + ' ' + result.browser.name);
-});
+    window.browserReport((error, result) => {
+        console.log(result.ip + ' ' + result.browser.name);
+    });
 
 # Coverage
 
@@ -203,7 +203,7 @@ In chronological order (oldest first); not in order of priority.
 * the previous synchronous function can still be found in `browserReportSync()`
 * the remote client IP address is now reported from ipify.org
 * a random UUID is now generated for cookie test instead of using the same UUID every time
-* report now includes the client's preferred language(s) for displaying pages
+* report now includes the client's preferred languages for displaying pages
 * report now includes a timestamp with the client's locale date, time and time zone
 
 *1.0.0 — September 11, 2015*
