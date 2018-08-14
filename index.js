@@ -152,8 +152,10 @@
 
             break;
         case "Safari":
-        case "Android Browser":
             match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            break;
+        case "Android Browser":
+            match = userAgent.match(/Android ((\d+\.)+\d+)/);
             break;
         case "UC Browser for Android":
             match = userAgent.match(/UCBrowser\/((\d+\.)+\d+)/);

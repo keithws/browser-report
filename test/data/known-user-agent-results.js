@@ -351,12 +351,40 @@ var expectedResults = [
         }
     },
     {
+        "device": "Android Browser — Android 4.4.4 — Samsung Galaxy Grand Prime",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.4; pt-br; SM-G530BT Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "expectedReport": {
+            "browser": {
+                "name": "Android Browser",
+                "version": "4.4.4"
+            },
+            "os": {
+                "name": "Android",
+                "version": "4.4.4"
+            }
+        }
+    },
+    {
+        "device": "Android Browser — Android 4.4.2",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Q40; Android/4.4.2; Release/12.15.2015) AppleWebKit/534.30 (KHTML, like Gecko) Mobile Safari/534.30",
+        "expectedReport": {
+            "browser": {
+                "name": "Android Browser",
+                "version": "4.4.2"
+            },
+            "os": {
+                "name": "Android",
+                "version": "4.4.2"
+            }
+        }
+    },
+    {
         "device": "Android Browser — Android 4.3 — Samsung Galaxy Note 3",
         "userAgent": "Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
         "expectedReport": {
             "browser": {
                 "name": "Android Browser",
-                "version": "4.0"
+                "version": "4.3"
             },
             "os": {
                 "name": "Android",
@@ -370,7 +398,7 @@ var expectedResults = [
         "expectedReport": {
             "browser": {
                 "name": "Android Browser",
-                "version": "4.0"
+                "version": "4.1"
             },
             "os": {
                 "name": "Android",
