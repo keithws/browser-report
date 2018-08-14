@@ -77,13 +77,13 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of January 18, 2017, their browser usage table accounts for 98.19% of global usage based on data from [StatCounter GlobalStats][4].
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of January 18, 2017, their browser usage table accounts for 95.76% of global usage based on data from [StatCounter GlobalStats][4].
 
-Coverage, as of January 18, 2017, matches at __98.19%__
+Coverage, as of August 13, 2018, matches at __95.76%__
 
 # Benchmarks
 
-The script file size is roughly 3K when gzipped and roughly 2K when uglified and gzipped.
+The script file size is roughly 3K when gzipped and roughly 2K when uglified and gzipped. The synchonous call takes about 4ms on a 2.3 GHz Intel Core i7 with Google Chrome 68. The asynchronus call is largely dependant on how long it takes for ipify.org to repond with the IP address.
 
 # TODO
 
@@ -98,12 +98,23 @@ In chronological order (oldest first); not in order of priority.
 * report on value for font size of root element
 * report on the client's Do-Not-Track setting
 * report if the client supports third-party cookies
-* check caniuse usage table and update tests and coverage
 * add more test cases for older versions of browsers
 * document the logic for which OSes will be properly detected
 * add tests for operating systems
+* add custom website
+* add badges
+* add test coverage with node-qunit
+* setup travis-ci
 
-#Change Log
+
+# Change Log
+
+*2.2.9 – August 13, 2018*
+
+* fixed bug in version number for Android Browser
+* updated test cases based on lastest stats from caniuse.com
+* added performance marks and measures to sample page
+* updated documentation
 
 *2.2.8 – January 18, 2017*
 
