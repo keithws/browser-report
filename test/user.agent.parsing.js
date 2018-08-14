@@ -10,8 +10,21 @@ describe("User Agent Matching", function () {
         it(message, function () {
             var report = window.browserReportSync(item.userAgent);
 
-            report.browser.name.should.equal(expected.browser.name);
-            report.browser.version.should.equal(expected.browser.version);
+            // add some custom data to the report
+            if (report.browser.version) {
+                report.browser.majorVersion = report.browser.version.split(".")[0];
+            }
+
+            for (var key in expected.browser) {
+                try {
+                    report.browser[key].should.equal(expected.browser[key]);
+                } catch (err) {
+                    /* eslint-disable no-console */
+                    console.log(report);
+                    /* eslint-enable no-console */
+                    throw err;
+                }
+            }
             report.os.name.should.equal(expected.os.name);
 
             // handle os version being null
