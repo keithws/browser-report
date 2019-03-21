@@ -240,7 +240,7 @@
         // can't trust this value (Microsoft Edge lies)
         // report.cookies = !!navigator.cookieEnabled;
 
-        // truely check if cookies are enabled
+        // truly check if cookies are enabled
         // generate UUID for cookie name
         uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
         uuid = uuid.replace(/[xy]/g, function (c) {
@@ -260,7 +260,7 @@
         } else {
             report.cookies = false;
         }
-        // delete temporoary cookie
+        // delete temporary cookie
         document.cookie = uuid + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 
 
