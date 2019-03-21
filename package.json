@@ -23,9 +23,9 @@
     },
     "homepage": "https://github.com/keithws/browser-report#readme",
     "devDependencies": {
-        "eslint": "^3.13.1",
-        "mocha": "^2.4.5",
-        "should": "^8.2.1",
-        "uglify-js": "^2.6.1"
+        "eslint": "^5.15.3",
+        "mocha": "^6.0.2",
+        "should": "^13.2.3",
+        "uglify-js": "^3.5.0"
     }
 }
