@@ -147,7 +147,7 @@
             } else if (userAgent.indexOf("rv:11") >= 0) {
                 match = userAgent.match(/rv:((\d+\.)+\d+)/);
             } else if (userAgent.indexOf("MSIE") >= 0) {
-                match = userAgent.match(/MSIE\ ((\d+\.)+\d+)/);
+                match = userAgent.match(/MSIE ((\d+\.)+\d+)/);
             }
 
             break;
@@ -351,7 +351,7 @@
                     report.os.version = "98";
                 }
             } else {
-                match = userAgent.match(/Win(?:dows)?(?: Phone)?[\ _]?(?:(?:NT|9x)\ )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
+                match = userAgent.match(/Win(?:dows)?(?: Phone)?[ _]?(?:(?:NT|9x) )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
 
                 if (match && match[1]) {
                     switch (match[1]) {
@@ -393,17 +393,17 @@
             }
             break;
         case "OS X":
-            match = userAgent.match(/OS\ X\ ((\d+[._])+\d+)\b/);
+            match = userAgent.match(/OS X ((\d+[._])+\d+)\b/);
             break;
         case "Linux":
             // linux user agent strings do not usually include the version
             report.os.version = null;
             break;
         case "iOS":
-            match = userAgent.match(/OS\ ((\d+[._])+\d+)\ like\ Mac\ OS\ X/);
+            match = userAgent.match(/OS ((\d+[._])+\d+) like Mac OS X/);
             break;
         case "Android":
-            match = userAgent.match(/(?:Android|Adr)\ ((\d+[._])+\d+)/);
+            match = userAgent.match(/(?:Android|Adr) ((\d+[._])+\d+)/);
             break;
         case "BlackBerry":
         case "BlackBerryOS":
