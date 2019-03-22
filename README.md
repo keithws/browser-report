@@ -1,5 +1,5 @@
 # browser-report
-Report browser settings like [whatsmybrowser.org][1] in a JavaScript object.
+Report browser settings like [whatsmybrowser.org][1] in a plain-old JavaScript object.
 
 [![npm version](https://badge.fury.io/js/browser-report.svg)](https://badge.fury.io/js/browser-report)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/browser-report.svg)
@@ -85,37 +85,45 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of January 18, 2017, their browser usage table accounts for 95.76% of global usage based on data from [StatCounter GlobalStats][4].
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of March 21, 2019, their browser usage table accounts for 98.43% of global usage based on data from [StatCounter GlobalStats][4].
 
-Coverage, as of August 13, 2018, matches at __95.76%__
+Coverage, as of March 21, 2019, matches at __98.43%__
 
 # Benchmarks
 
-The script file size is roughly 3K when gzipped and roughly 2K when uglified and gzipped. The synchonous call takes about 4ms on a 2.3 GHz Intel Core i7 with Google Chrome 68. The asynchronus call is largely dependant on how long it takes for ipify.org to repond with the IP address.
+The script file size is roughly 4K when gzipped and roughly 2K when minified and gzipped. The synchronous call takes about 4ms on a 2.6 GHz Intel Core i7 with Google Chrome 72. The asynchronous call is largely dependent on how long it takes for ipify.org to respond with the IP address.
 
 # TODO
 
-In chronological order (oldest first); not in order of priority.
+In chronological order (oldest first); not in order of priority. Contributions welcome!
 
 * add module support for node, es2016, commonJS, and bower
 * server side support (node)
     * not all information is available server side
     * but a lot of information can be extracted from the user agent
     * and the remote IP address is available
-* report on other/all plugins
-* report on value for font size of root element
-* report on the client's Do-Not-Track setting
+* report on other/all plugins (may not be needed anymore)
+* report on value for font size of root element (not in node)
+* report on the client's Do-Not-Track setting (may not be needed anymore)
 * report if the client supports third-party cookies
-* add more test cases for older versions of browsers
-* document the logic for which OSes will be properly detected
-* add tests for operating systems
 * add custom website
-* add badges
-* add test coverage with node-qunit
-* setup travis-ci
+* run tests with mocha cli (requires module support)
+* setup travis-ci (requests tests with mocha cli)
 
 
 # Change Log
+
+*2.2.10 – March 21, 2019*
+
+* updated test cases based on lastest stats from caniuse.com
+    * added nine new test cases
+    * updated eight existing test cases
+* added support for Android versions that are single numbers
+* added support for reporting mobile QQ Browsers correctly
+* upgraded dev dependencies
+* minor code changes for new version of eslint
+* minor test changes for new version of mocha
+* added badges ✅
 
 *2.2.9 – August 13, 2018*
 
