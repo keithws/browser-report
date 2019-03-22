@@ -432,6 +432,23 @@
             report.os.version = match[1];
         }
 
+        // handle Mac OS X / OS X / macOS naming conventions
+        if (report.os.name === "OS X" && report.os.version) {
+
+            var versions = report.os.version.split(".");
+            if (versions.length >= 2) {
+                var minorVersion = parseInt(versions[1], 10);
+                if (minorVersion <= 7) {
+                    report.os.name = "Mac OS X";
+                } else if (minorVersion >= 12) {
+                    report.os.name = "macOS";
+                } else {
+                    report.os.name = "OS X";
+                }
+            }
+
+        }
+
 
         // pull in screen info from W3C standard properties
         report.screen.width = screen.width;
