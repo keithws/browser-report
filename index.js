@@ -410,7 +410,7 @@
             match = userAgent.match(/OS ((\d+[._])+\d+) like Mac OS X/);
             break;
         case "Android":
-            match = userAgent.match(/(?:Android|Adr) ((\d+[._])+\d+)/);
+            match = userAgent.match(/(?:Android|Adr) (\d+([._]\d+)*)/);
             break;
         case "BlackBerry":
         case "BlackBerryOS":
