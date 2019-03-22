@@ -121,6 +121,10 @@
             report.browser.name = "BlackBerry";
         }
 
+        if (userAgent.indexOf("MQQBrowser") >= 0) {
+            report.browser.name = "QQ Browser";
+        }
+
 
         // extract browser version number from user agent
         match = null;
@@ -177,6 +181,9 @@
             break;
         case "BlackBerry":
             match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            break;
+        case "QQ Browser":
+            match = userAgent.match(/MQQBrowser\/((\d+\.)+\d+)/);
             break;
         default:
             match = userAgent.match(/\/((\d+\.)+\d+)$/);
