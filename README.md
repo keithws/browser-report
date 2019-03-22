@@ -2,12 +2,11 @@
 Report browser settings like [whatsmybrowser.org][1] in a plain-old JavaScript object.
 
 [![npm version](https://badge.fury.io/js/browser-report.svg)](https://badge.fury.io/js/browser-report)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/browser-report.svg)
-![npm downloads per month](https://img.shields.io/npm/dm/browser-report.svg)
 [![dependencies](https://img.shields.io/david/keithws/browser-report.svg)](https://david-dm.org/keithws/browser-report)
 [![dev dependencies](https://img.shields.io/david/dev/keithws/browser-report.svg)](https://david-dm.org/keithws/browser-report?type=dev)
+![npm downloads per month](https://img.shields.io/npm/dm/browser-report.svg)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/browser-report.svg)
 [![npm license](https://img.shields.io/npm/l/browser-report.svg?color=blue)](https://github.com/keithws/browser-report/blob/master/LICENSE)
-[![GitHub last commit](https://img.shields.io/github/last-commit/keithws/browser-report.svg)](https://github.com/keithws/browser-report/commits/master)
 
 Often, when a visitor to your website reports an issue, it can be difficult or impossible to reproduce the same issue without asking your visitor what software and settings they use.
 
