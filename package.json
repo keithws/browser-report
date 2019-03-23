@@ -1,15 +1,15 @@
 {
     "name": "browser-report",
-    "version": "2.2.8",
+    "version": "2.2.10",
     "description": "Report browser settings like whatsmybrowser.org.",
     "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
     "main": "./dist/browser-report.js",
     "scripts": {
         "pretest": "eslint \"**/*.js\"",
-        "test": "open file://`find $PWD/test -type f -name '*.html'`",
-        "prepublish": "npm run cp && npm run uglify",
-        "cp": "cp index.js dist/browser-report.js",
-        "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
+        "test": "open test/index.html",
+        "prepare": "npm run prepare:cp && npm run prepare:uglify",
+        "prepare:cp": "mkdir -p dist; cp index.js dist/browser-report.js",
+        "prepare:uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
         "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
     },
     "repository": {
@@ -23,9 +23,9 @@
     },
     "homepage": "https://github.com/keithws/browser-report#readme",
     "devDependencies": {
-        "eslint": "^3.13.1",
-        "mocha": "^2.4.5",
-        "should": "^8.2.1",
-        "uglify-js": "^2.6.1"
+        "eslint": "^5.15.3",
+        "mocha": "^6.0.2",
+        "should": "^13.2.3",
+        "uglify-js": "^3.5.0"
     }
 }

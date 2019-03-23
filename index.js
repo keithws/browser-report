@@ -121,6 +121,10 @@
             report.browser.name = "BlackBerry";
         }
 
+        if (userAgent.indexOf("MQQBrowser") >= 0) {
+            report.browser.name = "QQ Browser";
+        }
+
 
         // extract browser version number from user agent
         match = null;
@@ -147,13 +151,15 @@
             } else if (userAgent.indexOf("rv:11") >= 0) {
                 match = userAgent.match(/rv:((\d+\.)+\d+)/);
             } else if (userAgent.indexOf("MSIE") >= 0) {
-                match = userAgent.match(/MSIE\ ((\d+\.)+\d+)/);
+                match = userAgent.match(/MSIE ((\d+\.)+\d+)/);
             }
 
             break;
         case "Safari":
-        case "Android Browser":
             match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            break;
+        case "Android Browser":
+            match = userAgent.match(/Android ((\d+\.)+\d+)/);
             break;
         case "UC Browser for Android":
             match = userAgent.match(/UCBrowser\/((\d+\.)+\d+)/);
@@ -175,6 +181,9 @@
             break;
         case "BlackBerry":
             match = userAgent.match(/Version\/((\d+\.)+\d+)/);
+            break;
+        case "QQ Browser":
+            match = userAgent.match(/MQQBrowser\/((\d+\.)+\d+)/);
             break;
         default:
             match = userAgent.match(/\/((\d+\.)+\d+)$/);
@@ -238,7 +247,7 @@
         // can't trust this value (Microsoft Edge lies)
         // report.cookies = !!navigator.cookieEnabled;
 
-        // truely check if cookies are enabled
+        // truly check if cookies are enabled
         // generate UUID for cookie name
         uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
         uuid = uuid.replace(/[xy]/g, function (c) {
@@ -258,7 +267,7 @@
         } else {
             report.cookies = false;
         }
-        // delete temporoary cookie
+        // delete temporary cookie
         document.cookie = uuid + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 
 
@@ -352,7 +361,7 @@
                     report.os.version = "98";
                 }
             } else {
-                match = userAgent.match(/Win(?:dows)?(?: Phone)?[\ _]?(?:(?:NT|9x)\ )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
+                match = userAgent.match(/Win(?:dows)?(?: Phone)?[ _]?(?:(?:NT|9x) )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/);
 
                 if (match && match[1]) {
                     switch (match[1]) {
@@ -394,17 +403,17 @@
             }
             break;
         case "OS X":
-            match = userAgent.match(/OS\ X\ ((\d+[._])+\d+)\b/);
+            match = userAgent.match(/OS X ((\d+[._])+\d+)\b/);
             break;
         case "Linux":
             // linux user agent strings do not usually include the version
             report.os.version = null;
             break;
         case "iOS":
-            match = userAgent.match(/OS\ ((\d+[._])+\d+)\ like\ Mac\ OS\ X/);
+            match = userAgent.match(/OS ((\d+[._])+\d+) like Mac OS X/);
             break;
         case "Android":
-            match = userAgent.match(/(?:Android|Adr)\ ((\d+[._])+\d+)/);
+            match = userAgent.match(/(?:Android|Adr) (\d+([._]\d+)*)/);
             break;
         case "BlackBerry":
         case "BlackBerryOS":
@@ -427,6 +436,23 @@
             // replace underscores in version number with periods
             match[1] = match[1].replace(/_/g, ".");
             report.os.version = match[1];
+        }
+
+        // handle Mac OS X / OS X / macOS naming conventions
+        if (report.os.name === "OS X" && report.os.version) {
+
+            var versions = report.os.version.split(".");
+            if (versions.length >= 2) {
+                var minorVersion = parseInt(versions[1], 10);
+                if (minorVersion <= 7) {
+                    report.os.name = "Mac OS X";
+                } else if (minorVersion >= 12) {
+                    report.os.name = "macOS";
+                } else {
+                    report.os.name = "OS X";
+                }
+            }
+
         }
 
 

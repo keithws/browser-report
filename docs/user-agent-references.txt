@@ -1,80 +1,90 @@
-# Browser Name
-                        Must contain                Must not contain     
-Android Browser            
-Chrome                    Chrome/xyz                    Chromium/xyz     
-Chrome for Android        
+# User Agent References
+
+Rules for identifing browsers based on user agent strings. Ordered by the usage table on caniuse.com.
+
+## Desktop browsers
+
+Browser Name           | UA must contain | UA must not contain
+---------------------- | --------------- | -------------------
+Internet Explorer      | [;MSIE xyz;][3]
+Edge                   | 
+Firefox                | Firefox/xyz     | Seamonkey/xyz
+Chrome                 | Chrome/xyz      | Chromium/xyz
+Safari                 | Safari/xyz      | [Chrome/xyz or Chromium/xyz][4]
+Opera                  | [OPR/xyz][1] or [Opera/xyz][2]
+
+## Mobile browsers
+
+Browser Name           | UA must contain | UA must not contain
+---------------------- | --------------- | -------------------
+Safari for iOS         | 
+Opera Mini             | 
+Android Browser        | 
+Blackberry Browser     | 
+Opera Mobile           | 
+Chrome for Android     | 
+Firefox for Android    | 
+IE Mobile              | 
+UC Browser for Android | 
+Samsung Internet       | 
+QQ Browser             | 
+Baidu Browser          | 
+
+## Browsers not included
+
 WebView on Android        
-Chromium                Chromium/xyz
-Edge                    
-Firefox                    Firefox/xyz                    Seamonkey/xyz     
-Internet Explorer        ;MSIE xyz; [3]
-IE Mobile                
-Opera                    OPR/xyz [1] or Opera/xyz [2]
-Opera Mini                
-Safari                    Safari/xyz                    Chrome/xyz or Chromium/xyz [4]
-Safari for iOS            
-UC Browser for Android    
+Chromium                 Chromium/xyz
+
+## Notes
 
     [1] Opera 15+ (Blink-based engine)
     [2] Opera 12- (Presto-based engine)
     [3] Internet Explorer doesn't put its name in the BrowserName/VersionNumber format
     [4] Safari gives two version number, one technical in the Safari/xyz token, one user-friendly in a Version/xyz token
 
+## Not currently supported due to low/no traffic reported by caniuse.com
 
-# Not currently supported due to low/no traffic reported by caniuse.com
-Blackberry Browser
-Opera Mobile
-Firefox for Android
+  * QQ Browser
+  * Baidu Browser
+
+## References
+
+Understanding user-agent strings (Internet Explorer)
+https://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
 
 
-# References
+Firefox user agent string reference
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Gecko_user_agent_string_reference
 
-##
-# Understanding user-agent strings (Internet Explorer)
-# https://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
-##
 
-##
-# Firefox user agent string reference
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Gecko_user_agent_string_reference
-##
+User Agent Strings - Google Chrome
+https://developer.chrome.com/multidevice/user-agent
 
-##
-# User Agent Strings - Google Chrome
-# https://developer.chrome.com/multidevice/user-agent
-##
 
-##
-# Browser detection using the user agent
-# https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
-##
+Browser detection using the user agent
+https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
 
-##
-# User-Agent and X-UCBrowser-UA Specification of UC Browser
-# http://www.ucweb.com/download/UCBrowser_User_Agent_en.pdf
-##
 
-##
-# Opera Mini Request Headers
-# https://dev.opera.com/articles/opera-mini-request-headers/
-##
+User-Agent and X-UCBrowser-UA Specification of UC Browser
+http://www.ucweb.com/download/UCBrowser_User_Agent_en.pdf
 
-##
-# Opera User Agent Strings: Opera 15 and Beyond
-# https://dev.opera.com/blog/opera-user-agent-strings-opera-15-and-beyond/
-##
 
-##
-# Opera version history
-# http://www.opera.com/docs/history/
-##
+Opera Mini Request Headers
+https://dev.opera.com/articles/opera-mini-request-headers/
 
-##
-# The BlackBerry 10 User Agent String Has Arrived!
-# http://devblog.blackberry.com/2012/08/blackberry-10-user-agent-string/
-##
 
-##
-# How to detect the BlackBerry Browser
-# http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-to-detect-the-BlackBerry-Browser/ta-p/559862
-##
+Opera User Agent Strings: Opera 15 and Beyond
+https://dev.opera.com/blog/opera-user-agent-strings-opera-15-and-beyond/
+
+
+Opera version history
+http://www.opera.com/docs/history/
+
+
+The BlackBerry 10 User Agent String Has Arrived!
+http://devblog.blackberry.com/2012/08/blackberry-10-user-agent-string/
+
+
+How to detect the BlackBerry Browser
+http://supportforums.blackberry.com/t5/Web-and-WebWorks-Development/How-to-detect-the-BlackBerry-Browser/ta-p/559862
+

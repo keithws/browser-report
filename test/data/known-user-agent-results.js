@@ -1,62 +1,6 @@
 /* eslint no-unused-vars: "off" */
 var expectedResults = [
     {
-        "device": "Edge 14",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36 Edge/14.14316",
-        "expectedReport": {
-            "browser": {
-                "name": "Edge",
-                "version": "14.14316"
-            },
-            "os": {
-                "name": "Windows",
-                "version": "10.0"
-            }
-        }
-    },
-    {
-        "device": "Edge 13",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586",
-        "expectedReport": {
-            "browser": {
-                "name": "Edge",
-                "version": "13.10586"
-            },
-            "os": {
-                "name": "Windows",
-                "version": "10.0"
-            }
-        }
-    },
-    {
-        "device": "Edge 13 — Windows Phone 10 — Nokia Lumia 1520",
-        "userAgent": "Mozilla/5.0 (Windows Phone 10.0; Android 5.1.1; NOKIA; Lumia 1520) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/13.10586",
-        "expectedReport": {
-            "browser": {
-                "name": "Edge",
-                "version": "13.10586"
-            },
-            "os": {
-                "name": "Windows Phone",
-                "version": "10.0"
-            }
-        }
-    },
-    {
-        "device": "Edge 12",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136",
-        "expectedReport": {
-            "browser": {
-                "name": "Edge",
-                "version": "12.10136"
-            },
-            "os": {
-                "name": "Windows",
-                "version": "10.0"
-            }
-        }
-    },
-    {
         "device": "Internet Explorer 11",
         "userAgent": "Mozilla/5.0 (Windows NT 6.3; Win64, x64; Trident/7.0; rv:11.0) like Gecko",
         "expectedReport": {
@@ -155,12 +99,124 @@ var expectedResults = [
         }
     },
     {
+        "device": "Edge 18",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "majorVersion": "18"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 17",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "17.17134"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 16",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; WebView/3.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "16.16299"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 15",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "15.15063"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 14",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36 Edge/14.14316",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "14.14316"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 13",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "13.10586"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 13 — Windows Phone 10 — Nokia Lumia 1520",
+        "userAgent": "Mozilla/5.0 (Windows Phone 10.0; Android 5.1.1; NOKIA; Lumia 1520) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Mobile Safari/537.36 Edge/13.10586",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "13.10586"
+            },
+            "os": {
+                "name": "Windows Phone",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Edge 12",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136",
+        "expectedReport": {
+            "browser": {
+                "name": "Edge",
+                "version": "12.10136"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
         "device": "Firefox — Windows",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0",
         "expectedReport": {
             "browser": {
                 "name": "Firefox",
-                "version": "50.0"
+                "version": "66.0"
             },
             "os": {
                 "name": "Windows",
@@ -170,25 +226,25 @@ var expectedResults = [
     },
     {
         "device": "Firefox — Mac",
-        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:50.0) Gecko/20100101 Firefox/50.0",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0",
         "expectedReport": {
             "browser": {
                 "name": "Firefox",
-                "version": "50.0"
+                "version": "66.0"
             },
             "os": {
-                "name": "OS X",
-                "version": "10.12"
+                "name": "macOS",
+                "version": "10.14"
             }
         }
     },
     {
         "device": "Chrome — Windows",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36",
         "expectedReport": {
             "browser": {
                 "name": "Chrome",
-                "version": "55.0.2883.87"
+                "majorVersion": "73"
             },
             "os": {
                 "name": "Windows",
@@ -198,15 +254,15 @@ var expectedResults = [
     },
     {
         "device": "Chrome — Mac",
-        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36",
         "expectedReport": {
             "browser": {
                 "name": "Chrome",
-                "version": "55.0.2883.95"
+                "majorVersion": "73"
             },
             "os": {
-                "name": "OS X",
-                "version": "10.12.2"
+                "name": "macOS",
+                "version": "10.14.3"
             }
         }
     },
@@ -239,16 +295,60 @@ var expectedResults = [
         }
     },
     {
-        "device": "Safari",
-        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4",
+        "device": "Safari 12 — macOS Mojave",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15",
         "expectedReport": {
             "browser": {
                 "name": "Safari",
-                "version": "9.0.3"
+                "version": "12.0.3",
+                "majorVersion": "12"
             },
             "os": {
-                "name": "OS X",
-                "version": "10.11.0"
+                "name": "macOS",
+                "version": "10.14.3"
+            }
+        }
+    },
+    {
+        "device": "Safari 11 — macOS Sierra",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15",
+        "expectedReport": {
+            "browser": {
+                "name": "Safari",
+                "version": "11.1.2",
+                "majorVersion": "11"
+            },
+            "os": {
+                "name": "macOS",
+                "version": "10.12.6"
+            }
+        }
+    },
+    {
+        "device": "Opera 58 — Windows",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36 OPR/58.0.3135.114",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera",
+                "majorVersion": "58"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Opera 53 — Mac",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.170 Safari/537.36 OPR/53.0.2907.68",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera",
+                "majorVersion": "53"
+            },
+            "os": {
+                "name": "macOS",
+                "version": "10.13.5"
             }
         }
     },
@@ -337,6 +437,34 @@ var expectedResults = [
         }
     },
     {
+        "device": "Safari — iOS 12 — iPhone",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1",
+        "expectedReport": {
+            "browser": {
+                "name": "Safari",
+                "version": "12.0"
+            },
+            "os": {
+                "name": "iOS",
+                "version": "12.1.4"
+            }
+        }
+    },
+    {
+        "device": "Safari — iOS 11 — iPhone",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+        "expectedReport": {
+            "browser": {
+                "name": "Safari",
+                "version": "11.0"
+            },
+            "os": {
+                "name": "iOS",
+                "version": "11.0"
+            }
+        }
+    },
+    {
         "device": "Safari — iOS 10 — iPhone",
         "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A300 Safari/602.1",
         "expectedReport": {
@@ -365,6 +493,20 @@ var expectedResults = [
         }
     },
     {
+        "device": "Opera Mini 32 — Android",
+        "userAgent": "Opera/9.80 (Android; Opera Mini/32.0/88.150; U; sr) Presto/2.12 Version/12.16",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera Mini",
+                "majorVersion": "32"
+            },
+            "os": {
+                "name": "Android",
+                "version": null
+            }
+        }
+    },
+    {
         "device": "Opera Mini 8 — Android",
         "userAgent": "Opera/9.80 (Android; Opera Mini/8.0.1807/36.1609; U; en) Presto/2.12.423 Version/12.16",
         "expectedReport": {
@@ -379,12 +521,40 @@ var expectedResults = [
         }
     },
     {
+        "device": "Android Browser — Android 4.4.4 — Samsung Galaxy Grand Prime",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.4; pt-br; SM-G530BT Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "expectedReport": {
+            "browser": {
+                "name": "Android Browser",
+                "version": "4.4.4"
+            },
+            "os": {
+                "name": "Android",
+                "version": "4.4.4"
+            }
+        }
+    },
+    {
+        "device": "Android Browser — Android 4.4.2",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; Q40; Android/4.4.2; Release/12.15.2015) AppleWebKit/534.30 (KHTML, like Gecko) Mobile Safari/534.30",
+        "expectedReport": {
+            "browser": {
+                "name": "Android Browser",
+                "version": "4.4.2"
+            },
+            "os": {
+                "name": "Android",
+                "version": "4.4.2"
+            }
+        }
+    },
+    {
         "device": "Android Browser — Android 4.3 — Samsung Galaxy Note 3",
         "userAgent": "Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
         "expectedReport": {
             "browser": {
                 "name": "Android Browser",
-                "version": "4.0"
+                "version": "4.3"
             },
             "os": {
                 "name": "Android",
@@ -398,7 +568,7 @@ var expectedResults = [
         "expectedReport": {
             "browser": {
                 "name": "Android Browser",
-                "version": "4.0"
+                "version": "4.1"
             },
             "os": {
                 "name": "Android",
@@ -463,12 +633,82 @@ var expectedResults = [
         }
     },
     {
-        "device": "Chrome for Android 55 — Android 6.0 — Google Nexus 5",
-        "userAgent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2490.76 Mobile Safari/537.36",
+        "device": "Opera Mobile 15.0 — Android 4.4.4",
+        "userAgent": "Mozilla/5.0 (Linux; Android 4.4.4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 Mobile OPR/15.0.1147.100",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera Mobile",
+                "version": "15.0.1147.100"
+            },
+            "os": {
+                "name": "Android",
+                "version": "4.4.4"
+            }
+        }
+    },
+    {
+        "device": "Opera Mobile 14.0 — Android 2.3.4 — Sony MT11i Xperia neo V",
+        "userAgent": "Mozilla/5.0 (Linux; Android 2.3.4; MT11i Build/4.0.2.A.0.62) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.123 Mobile Safari/537.22 OPR/14.0.1025.52315",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera Mobile",
+                "version": "14.0.1025.52315"
+            },
+            "os": {
+                "name": "Android",
+                "version": "2.3.4"
+            }
+        }
+    },
+    {
+        "device": "Opera Mobile 11.1 — Windows 7 — Tablet",
+        "userAgent": "Opera/9.80 (Windows NT 6.1; Opera Tablet/15165; U; en) Presto/2.8.149 Version/11.1",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera Mobile",
+                "version": "11.1"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "7"
+            }
+        }
+    },
+    {
+        "device": "Opera Mobile 10.5 — Android 2.2",
+        "userAgent": "Opera/9.80 (Android 2.2; Opera Mobi/-2118645896; U; pl) Presto/2.7.60 Version/10.5",
+        "expectedReport": {
+            "browser": {
+                "name": "Opera Mobile",
+                "version": "10.5"
+            },
+            "os": {
+                "name": "Android",
+                "version": "2.2"
+            }
+        }
+    },
+    {
+        "device": "Chrome for Android 73 — Android 9.0",
+        "userAgent": "Mozilla/5.0 (Linux; Android 9; SM-G960U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Mobile Safari/537.36",
         "expectedReport": {
             "browser": {
                 "name": "Chrome for Android",
-                "version": "55.0.2490.76"
+                "majorVersion": "73"
+            },
+            "os": {
+                "name": "Android",
+                "version": "9"
+            }
+        }
+    },
+    {
+        "device": "Chrome for Android 71 — Android 6.0",
+        "userAgent": "Mozilla/5.0 (Linux; Android 6.0; CAM-L03) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.99 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome for Android",
+                "majorVersion": "71"
             },
             "os": {
                 "name": "Android",
@@ -547,6 +787,20 @@ var expectedResults = [
         }
     },
     {
+        "device": "Firefox for Android 64 — Android 9",
+        "userAgent": "Mozilla/5.0 (Android 9; Mobile; rv:64.0) Gecko/64.0 Firefox/64.0",
+        "expectedReport": {
+            "browser": {
+                "name": "Firefox for Android",
+                "majorVersion": "64"
+            },
+            "os": {
+                "name": "Android",
+                "version": "9"
+            }
+        }
+    },
+    {
         "device": "Firefox for Android 41 — Android 4.4",
         "userAgent": "Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0",
         "expectedReport": {
@@ -599,6 +853,20 @@ var expectedResults = [
             "os": {
                 "name": "Windows Phone",
                 "version": "8.0"
+            }
+        }
+    },
+    {
+        "device": "UC Browser 12 — Android 6",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 6.0; en-US; CPH1609 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.10.2.1164 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "UC Browser for Android",
+                "majorVersion": "12"
+            },
+            "os": {
+                "name": "Android",
+                "version": "6.0"
             }
         }
     },
@@ -659,6 +927,62 @@ var expectedResults = [
         }
     },
     {
+        "device": "Samsung Internet 9.0 — Android 9",
+        "userAgent": "Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G965F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.0 Chrome/67.0.3396.87 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Samsung Internet",
+                "majorVersion": "9"
+            },
+            "os": {
+                "name": "Android",
+                "version": "9"
+            }
+        }
+    },
+    {
+        "device": "Samsung Internet 8.2 — Android 8",
+        "userAgent": "Mozilla/5.0 (Linux; Android 8.0.0; SAMSUNG SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/8.2 Chrome/63.0.3239.111 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Samsung Internet",
+                "version": "8.2"
+            },
+            "os": {
+                "name": "Android",
+                "version": "8.0.0"
+            }
+        }
+    },
+    {
+        "device": "Samsung Internet 7.2 — Android 7.0",
+        "userAgent": "Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-J330FN Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/7.2 Chrome/59.0.3071.125 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Samsung Internet",
+                "version": "7.2"
+            },
+            "os": {
+                "name": "Android",
+                "version": "7.0"
+            }
+        }
+    },
+    {
+        "device": "Samsung Internet 5.0 — Android 5.0",
+        "userAgent": "Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-G925F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.0 Chrome/44.0.2403.133 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Samsung Internet",
+                "version": "4.0"
+            },
+            "os": {
+                "name": "Android",
+                "version": "5.0.2"
+            }
+        }
+    },
+    {
         "device": "Samsung Internet 4.0 — Android 5.0",
         "userAgent": "Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-G925F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.0 Chrome/44.0.2403.133 Mobile Safari/537.36",
         "expectedReport": {
@@ -673,59 +997,31 @@ var expectedResults = [
         }
     },
     {
-        "device": "Opera Mobile 15.0 — Android 4.4.4",
-        "userAgent": "Mozilla/5.0 (Linux; Android 4.4.4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 Mobile OPR/15.0.1147.100",
+        "device": "QQ Browser 9 — Android 8",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 8.1.0; zh-cn; vivo X21A Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/9.1 Mobile Safari/537.36",
         "expectedReport": {
             "browser": {
-                "name": "Opera Mobile",
-                "version": "15.0.1147.100"
+                "name": "QQ Browser",
+                "majorVersion": "9"
             },
             "os": {
                 "name": "Android",
-                "version": "4.4.4"
+                "version": "8.1.0"
             }
         }
     },
     {
-        "device": "Opera Mobile 14.0 — Android 2.3.4 — Sony MT11i Xperia neo V",
-        "userAgent": "Mozilla/5.0 (Linux; Android 2.3.4; MT11i Build/4.0.2.A.0.62) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.123 Mobile Safari/537.22 OPR/14.0.1025.52315",
+        "device": "QQ Browser 5 — Android 4.4.2",
+        "userAgent": "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; GT-I9500 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.0 QQ-URL-Manager Mobile Safari/537.36",
         "expectedReport": {
             "browser": {
-                "name": "Opera Mobile",
-                "version": "14.0.1025.52315"
+                "name": "QQ Browser",
+                "majorVersion": "5"
             },
             "os": {
                 "name": "Android",
-                "version": "2.3.4"
+                "version": "4.4.2"
             }
         }
-    },
-    {
-        "device": "Opera Mobile 11.1 — Windows 7 — Tablet",
-        "userAgent": "Opera/9.80 (Windows NT 6.1; Opera Tablet/15165; U; en) Presto/2.8.149 Version/11.1",
-        "expectedReport": {
-            "browser": {
-                "name": "Opera Mobile",
-                "version": "11.1"
-            },
-            "os": {
-                "name": "Windows",
-                "version": "7"
-            }
-        }
-    },
-    {
-        "device": "Opera Mobile 10.5 — Android 2.2",
-        "userAgent": "Opera/9.80 (Android 2.2; Opera Mobi/-2118645896; U; pl) Presto/2.7.60 Version/10.5",
-        "expectedReport": {
-            "browser": {
-                "name": "Opera Mobile",
-                "version": "10.5"
-            },
-            "os": {
-                "name": "Android",
-                "version": "2.2"
-            }
-        }
-    },
+    }
 ];

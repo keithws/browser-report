@@ -1,5 +1,12 @@
 # browser-report
-Report browser settings like [whatsmybrowser.org][1] in a JavaScript object.
+Report browser settings like [whatsmybrowser.org][1] in a plain-old JavaScript object.
+
+[![npm version](https://badge.fury.io/js/browser-report.svg)](https://badge.fury.io/js/browser-report)
+[![dependencies](https://img.shields.io/david/keithws/browser-report.svg)](https://david-dm.org/keithws/browser-report)
+[![dev dependencies](https://img.shields.io/david/dev/keithws/browser-report.svg)](https://david-dm.org/keithws/browser-report?type=dev)
+![npm downloads per month](https://img.shields.io/npm/dm/browser-report.svg)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/browser-report.svg)
+[![npm license](https://img.shields.io/npm/l/browser-report.svg?color=blue)](https://github.com/keithws/browser-report/blob/master/LICENSE)
 
 Often, when a visitor to your website reports an issue, it can be difficult or impossible to reproduce the same issue without asking your visitor what software and settings they use.
 
@@ -77,50 +84,56 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of February 11, 2017, their browser usage table accounts for 98.32% of global usage based on data from [StatCounter GlobalStats][4].
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of March 2019, their browser usage table accounts for 98.43% of global usage based on data from [StatCounter GlobalStats Browser Market Share][4].
 
-If test coverage for operating systems is to meet the same level of coverage as the browsers, it would require __98.32%__ of the [StatsCounter GlobalStats for worldwide market share][8]. Hence the following operating systems should be properly detected:
+Browser test coverage, as of v2.2.10, matches at __98.43%__
 
-| OS | % |
-|----|---:|
-|Android|37.15|
-|Win7|18.12
-|iOS|13.16
-|Win10|12.53
-|OS X|5.06
-|Win8.1|3.68
-|Unknown|2.63
-|WinXP|2.18
-|Win8|1.15
-|Linux|0.78
-|Nokia Unknown|0.75
-|Windows Phone|0.56
-|Series 40|0.46
-|WinVista|0.46
+Operating systems are also correctely identified for the top 10 Operating systems as reported by [StatCounter GlobalStats OS Market Share][8]. As of February 2019, the top 10 accounts for 94.99% of global traffic.
 
-Coverage, as of February 11, 2017, matches at __98.32%__
+Operating system test coverage, as of v2.2.11, matches the top 10 at __94.99%__
 
 # Benchmarks
 
-The script file size is roughly 3K when gzipped and roughly 2K when uglified and gzipped.
+The script file size is roughly 4K when gzipped and roughly 2K when minified and gzipped. The synchronous call takes about 4ms on a 2.6 GHz Intel Core i7 with Google Chrome 72. The asynchronous call is largely dependent on how long it takes for ipify.org to respond with the IP address.
 
 # TODO
 
-In chronological order (oldest first); not in order of priority.
+In chronological order (oldest first); not in order of priority. Contributions welcome!
 
 * add module support for node, es2016, commonJS, and bower
 * server side support (node)
     * not all information is available server side
     * but a lot of information can be extracted from the user agent
     * and the remote IP address is available
-* report on other/all plugins
-* report on value for font size of root element
-* report on the client's Do-Not-Track setting
+* report on other/all plugins (may not be needed anymore)
+* report on value for font size of root element (not in node)
+* report on the client's Do-Not-Track setting (may not be needed anymore)
 * report if the client supports third-party cookies
-* check caniuse usage table and update tests and coverage
-* add more test cases for older versions of browsers
+* add custom website
+* run tests with mocha cli (requires module support)
+* setup travis-ci (requests tests with mocha cli)
 
-#Change Log
+
+# Change Log
+
+*2.2.10 – March 21, 2019*
+
+* updated test cases based on lastest stats from caniuse.com
+    * added nine new test cases
+    * updated eight existing test cases
+* added support for Android versions that are single numbers
+* added support for reporting mobile QQ Browsers correctly
+* upgraded dev dependencies
+* minor code changes for new version of eslint
+* minor test changes for new version of mocha
+* added badges ✅
+
+*2.2.9 – August 13, 2018*
+
+* fixed bug in version number for Android Browser
+* updated test cases based on lastest stats from caniuse.com
+* added performance marks and measures to sample page
+* updated documentation
 
 *2.2.8 – January 18, 2017*
 
@@ -218,7 +231,7 @@ browser-report is available under the [MIT License][6].
   [1]: http://www.whatsmybrowser.org
   [2]: https://github.com/bestiejs/platform.js
   [3]: http://caniuse.com/usage-table
-  [4]: http://gs.statcounter.com/
+  [4]: http://gs.statcounter.com/browser-market-share
   [5]: http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
   [6]: https://github.com/keithws/browser-report/blob/master/LICENSE
   [7]: https://github.com/faisalman/ua-parser-js

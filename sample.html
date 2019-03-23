@@ -191,6 +191,14 @@
     <script>
         var sampleReport;
 
+        window.performance && window.performance.mark('browserReportStart');
+        var sampleReport = browserReportSync();
+        if (window.performance) {
+            window.performance.mark('browserReportEnd');
+            window.performance.measure('browserReportComplete', 'browserReportStart', 'browserReportEnd');
+            console.log(window.performance.getEntriesByName('browserReportComplete')[0]);
+        }
+
         browserReport(function (err, report) {
             "use strict";
 
