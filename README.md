@@ -84,9 +84,13 @@ The report object has the following keys and value types.
 
 # Coverage
 
-The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of March 21, 2019, their browser usage table accounts for 98.43% of global usage based on data from [StatCounter GlobalStats][4].
+The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of March 2019, their browser usage table accounts for 98.43% of global usage based on data from [StatCounter GlobalStats Browser Market Share][4].
 
-Coverage, as of March 21, 2019, matches at __98.43%__
+Browser test coverage, as of v2.2.10, matches at __98.43%__
+
+Operating systems are also correctely identified for the top 10 Operating systems as reported by [StatCounter GlobalStats OS Market Share][8]. As of February 2019, the top 10 accounts for 94.99% of global traffic.
+
+Operating system test coverage, as of v2.2.11, matches the top 10 at __94.99%__
 
 # Benchmarks
 
@@ -227,7 +231,8 @@ browser-report is available under the [MIT License][6].
   [1]: http://www.whatsmybrowser.org
   [2]: https://github.com/bestiejs/platform.js
   [3]: http://caniuse.com/usage-table
-  [4]: http://gs.statcounter.com/
+  [4]: http://gs.statcounter.com/browser-market-share
   [5]: http://stackoverflow.com/questions/9514179/how-to-find-the-operating-system-version-using-javascript
   [6]: https://github.com/keithws/browser-report/blob/master/LICENSE
   [7]: https://github.com/faisalman/ua-parser-js
+  [8]: http://gs.statcounter.com/os-market-share
