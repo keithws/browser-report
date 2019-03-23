@@ -2,14 +2,28 @@
     "name": "browser-report",
     "version": "2.2.10",
     "description": "Report browser settings like whatsmybrowser.org.",
-    "keywords": "browser user-agent useragent viewport screen layout plugins report detect",
+    "keywords": [
+      "browser details",
+      "browser detection",
+      "browser",
+      "detect",
+      "report",
+      "supported",
+      "user agent string",
+      "user agent",
+      "user-agent",
+      "useragent",
+      "viewport",
+      "whatsmybrowser"
+    ],
     "main": "./dist/browser-report.js",
     "scripts": {
         "pretest": "eslint \"**/*.js\"",
         "test": "open test/index.html",
-        "prepare": "npm run prepare:cp && npm run prepare:uglify",
-        "prepare:cp": "mkdir -p dist; cp index.js dist/browser-report.js",
-        "prepare:uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
+        "prepare": "npm run mkdir && npm run cp && npm run uglify",
+        "mkdir": "mkdir -p dist",
+        "cp": "cp index.js dist/browser-report.js",
+        "uglify": "uglifyjs dist/browser-report.js -o dist/browser-report.min.js --compress --mangle",
         "gzip": "gzip --keep --force dist/browser-report.js dist/browser-report.min.js"
     },
     "repository": {
