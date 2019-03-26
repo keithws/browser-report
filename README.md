@@ -86,11 +86,11 @@ The report object has the following keys and value types.
 
 The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of March 2019, their browser usage table accounts for 98.43% of global usage based on data from [StatCounter GlobalStats Browser Market Share][4].
 
-Browser test coverage, as of v2.2.10, matches at __98.43%__
+Browser test coverage, as of v2.2.10, matches at __98.43%__\
 
-Operating systems are also correctely identified for the top 10 Operating systems as reported by [StatCounter GlobalStats OS Market Share][8]. As of February 2019, the top 10 accounts for 94.99% of global traffic.
+Operating systems are also correctly identified for the top seven operating systems as reported by [StatCounter GlobalStats OS Market Share][8]. As of February 2019, the top seven accounts for 94.7% of global traffic.
 
-Operating system test coverage, as of v2.2.11, matches the top 10 at __94.99%__
+Operating system test coverage, as of v2.2.11, matches the top seven at __94.7%__
 
 # Benchmarks
 
@@ -115,6 +115,12 @@ In chronological order (oldest first); not in order of priority. Contributions w
 
 
 # Change Log
+
+*2.2.11 – March 25, 2019*
+
+* added support for detecting Chrome OS
+* added support for detecting KaiOS
+* added tests to make sure OS detection works correctly for top 7 operating systems as reported by StatCounter GlobalStats
 
 *2.2.10 – March 21, 2019*
 
