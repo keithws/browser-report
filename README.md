@@ -112,6 +112,7 @@ In chronological order (oldest first); not in order of priority. Contributions w
 * add custom website
 * run tests with mocha cli (requires module support)
 * setup travis-ci (requests tests with mocha cli)
+* get browser-report on cdnjs.com
 
 
 # Change Log
