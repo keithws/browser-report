@@ -1,6 +1,6 @@
 {
     "name": "browser-report",
-    "version": "2.2.10",
+    "version": "2.2.11",
     "description": "Report browser settings like whatsmybrowser.org.",
     "keywords": [
       "browser details",
