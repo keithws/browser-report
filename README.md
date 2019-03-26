@@ -86,7 +86,7 @@ The report object has the following keys and value types.
 
 The goal is to correctly identify all browsers included on caniuse.com according to their [browser usage table][3]. As of March 2019, their browser usage table accounts for 98.43% of global usage based on data from [StatCounter GlobalStats Browser Market Share][4].
 
-Browser test coverage, as of v2.2.10, matches at __98.43%__\
+Browser test coverage, as of v2.2.10, matches at __98.43%__
 
 Operating systems are also correctly identified for the top seven operating systems as reported by [StatCounter GlobalStats OS Market Share][8]. As of February 2019, the top seven accounts for 94.7% of global traffic.
 
