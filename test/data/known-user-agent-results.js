@@ -267,12 +267,26 @@ var expectedResults = [
         }
     },
     {
+        "device": "Chrome 72 — Chromebook",
+        "userAgent": "Mozilla/5.0 (X11; CrOS x86_64 11316.165.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.122 Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome",
+                "majorVersion": "72"
+            },
+            "os": {
+                "name": "Chrome OS",
+                "version": "72.0.3626.122"
+            }
+        }
+    },
+    {
         "device": "Chrome 55 — Chromebook",
         "userAgent": "Mozilla/5.0 (X11; CrOS x86_64 8872.76.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.105 Safari/537.36",
         "expectedReport": {
             "browser": {
                 "name": "Chrome",
-                "version": "55.0.2883.105"
+                "majorVersion": "55"
             },
             "os": {
                 "name": "Chrome OS",
@@ -1023,5 +1037,152 @@ var expectedResults = [
                 "version": "4.4.2"
             }
         }
+    },
+    {
+        "device": "Android",
+        "userAgent": "Mozilla/5.0 (Linux; Android 9; ONEPLUS A6003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Mobile Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome for Android",
+                "majorVersion": "73"
+            },
+            "os": {
+                "name": "Android",
+                "version": "9"
+            }
+        }
+    },
+    {
+        "device": "Windows",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome",
+                "majorVersion": "72"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "iOS",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1",
+        "expectedReport": {
+            "browser": {
+                "name": "Safari",
+                "majorVersion": "12"
+            },
+            "os": {
+                "name": "iOS",
+                "version": "12.1.4"
+            }
+        }
+    },
+    {
+        "device": "OS X",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome",
+                "majorVersion": "72"
+            },
+            "os": {
+                "name": "macOS",
+                "version": "10.14.3"
+            }
+        }
+    },
+    {
+        "device": "Linux",
+        "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0",
+        "expectedReport": {
+            "browser": {
+                "name": "Firefox",
+                "majorVersion": "66"
+            },
+            "os": {
+                "name": "Linux",
+                "version": null
+            }
+        }
+    },
+    {
+        "device": "Chrome OS",
+        "userAgent": "Mozilla/5.0 (X11; CrOS x86_64 11316.165.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.122 Safari/537.36",
+        "expectedReport": {
+            "browser": {
+                "name": "Chrome",
+                "majorVersion": "72"
+            },
+            "os": {
+                "name": "Chrome OS",
+                "version": "72.0.3626.122"
+            }
+        }
+    },
+    {
+        "device": "KaiOS",
+        "userAgent": "Mozilla/5.0 (Mobile; LYF/F90M/LYF_F90M_000-03-12-110119; Android; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5",
+        "expectedReport": {
+            "browser": {
+                "name": "Firefox for Android",
+                "majorVersion": "48"
+            },
+            "os": {
+                "name": "KaiOS",
+                "version": "2.5"
+            }
+        }
     }
+    /*
+    {
+        "device": "Samsung",
+        "userAgent": "??? What is the Samsung OS? It's not Tizen and I don't believe it's Bada.",
+        "expectedReport": {
+            "browser": {
+                "name": "",
+                "majorVersion": ""
+            },
+            "os": {
+                "name": "Samsung",
+                "version": ""
+            }
+        }
+    },
+    */
+    /*
+     * not enough traffic
+     * only used by the S40 Ovi Browser
+    {
+        "device": "Series 40",
+        "notes": "By Nokia, also known as S40",
+        "userAgent": "",
+        "expectedReport": {
+            "browser": {
+                "name": "",
+                "majorVersion": ""
+            },
+            "os": {
+                "name": "Series 40",
+                "version": ""
+            }
+        }
+    },
+    {
+        "device": "Nokia Unknown",
+        "userAgent": "",
+        "expectedReport": {
+            "browser": {
+                "name": "",
+                "majorVersion": ""
+            },
+            "os": {
+                "name": "Nokia Unknown",
+                "version": ""
+            }
+        }
+    },
+    */
 ];

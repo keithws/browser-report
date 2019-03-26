@@ -342,6 +342,10 @@
             report.os.name = "Chrome OS";
         }
 
+        if (userAgent.indexOf("KAIOS") >= 0) {
+            report.os.name = "KaiOS";
+        }
+
         // extract operating system version from user agent
         match = null;
 
@@ -422,8 +426,11 @@
         case "BlackBerry Tablet OS":
             match = userAgent.match(/RIM Tablet OS ((\d+\.)+\d+)/);
             break;
-	case "Chrome OS":
+        case "Chrome OS":
             report.os.version = report.browser.version;
+            break;
+        case "KaiOS":
+            match = userAgent.match(/KAIOS\/(\d+(\.\d+)*)/);
             break;
         default:
             // no good default behavior
