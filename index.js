@@ -370,6 +370,7 @@
                 if (match && match[1]) {
                     switch (match[1]) {
                     case "6.4":
+                        // some versions of Firefox mistakenly used 6.4
                         match[1] = "10.0";
                         break;
                     case "6.3":

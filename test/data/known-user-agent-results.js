@@ -1053,12 +1053,26 @@ var expectedResults = [
         }
     },
     {
-        "device": "Windows",
+        "device": "Windows 10",
         "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36",
         "expectedReport": {
             "browser": {
                 "name": "Chrome",
                 "majorVersion": "72"
+            },
+            "os": {
+                "name": "Windows",
+                "version": "10.0"
+            }
+        }
+    },
+    {
+        "device": "Firefox 32 on Windows 10 (NT 6.4)",
+        "userAgent": "Mozilla/5.0 (Windows NT 6.4; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0",
+        "expectedReport": {
+            "browser": {
+                "name": "Firefox",
+                "majorVersion": "32"
             },
             "os": {
                 "name": "Windows",
