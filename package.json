@@ -3,18 +3,18 @@
     "version": "2.2.11",
     "description": "Report browser settings like whatsmybrowser.org.",
     "keywords": [
-      "browser details",
-      "browser detection",
-      "browser",
-      "detect",
-      "report",
-      "supported",
-      "user agent string",
-      "user agent",
-      "user-agent",
-      "useragent",
-      "viewport",
-      "whatsmybrowser"
+        "browser details",
+        "browser detection",
+        "browser",
+        "detect",
+        "report",
+        "supported",
+        "user agent string",
+        "user agent",
+        "user-agent",
+        "useragent",
+        "viewport",
+        "whatsmybrowser"
     ],
     "main": "./dist/browser-report.js",
     "scripts": {
@@ -37,9 +37,9 @@
     },
     "homepage": "https://github.com/keithws/browser-report#readme",
     "devDependencies": {
-        "eslint": "^5.15.3",
-        "mocha": "^6.0.2",
+        "eslint": "^6.5.1",
+        "mocha": "^6.2.2",
         "should": "^13.2.3",
-        "uglify-js": "^3.5.0"
+        "uglify-js": "^3.6.3"
     }
 }
