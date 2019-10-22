@@ -1,11 +1,11 @@
 # browser-report
 Report browser settings like [whatsmybrowser.org][1] in a plain-old JavaScript object.
 
-[![npm version](https://badge.fury.io/js/browser-report.svg)](https://badge.fury.io/js/browser-report)
+[![npm version](https://badge.fury.io/js/browser-report.svg)](https://www.npmjs.com/package/browser-report)
 [![dependencies](https://img.shields.io/david/keithws/browser-report.svg)](https://david-dm.org/keithws/browser-report)
 [![dev dependencies](https://img.shields.io/david/dev/keithws/browser-report.svg)](https://david-dm.org/keithws/browser-report?type=dev)
-![npm downloads per month](https://img.shields.io/npm/dm/browser-report.svg)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/browser-report.svg)
+[![npm downloads per month](https://img.shields.io/npm/dm/browser-report.svg)](https://www.npmjs.com/package/browser-report)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/browser-report.svg)](https://www.npmjs.com/package/browser-report)
 [![npm license](https://img.shields.io/npm/l/browser-report.svg?color=blue)](https://github.com/keithws/browser-report/blob/master/LICENSE)
 
 Often, when a visitor to your website reports an issue, it can be difficult or impossible to reproduce the same issue without asking your visitor what software and settings they use.
@@ -115,7 +115,12 @@ In chronological order (oldest first); not in order of priority. Contributions w
 * get browser-report on cdnjs.com
 
 
-# Change Log
+# Changelog
+
+*2.2.12 – October 21, 2019*
+
+* upgraded all deps to latest
+* resolves security issue with eslint
 
 *2.2.11 – March 25, 2019*
 
