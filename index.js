@@ -24,6 +24,14 @@
                 "version": null
             },
             "ip": null,
+            "country": {
+                "name": null,
+                "code": null,
+                "city": null,
+                "latitude" : null,
+                "longitude": null,
+                "timezone": null
+            },
             "java": {
                 "version": null
             },
@@ -499,8 +507,8 @@
         report.websockets = !!window.WebSocket;
 
 
-        // preferred language(s) for displaying pages
-        report.lang = navigator.languages || navigator.language;
+        // preferred languages for displaying pages
+        report.lang = navigator.languages || [navigator.language];
 
 
         // local date, time, and time zone
@@ -513,7 +521,7 @@
 
     /*
      * asynchronous version includes the remote client IP address
-     * uses ipify.org API
+     * uses freegeoip.net API
      */
     window.browserReport = window.browserReport || function (callback) {
         var report, newScriptTag, existingScriptTag;
@@ -521,15 +529,21 @@
         report = extractDataFromClient();
 
         // use ipify.org to get the remote client ip address
-        // define function to handle data from ipify.org
-        window.getip = window.getip || function (data) {
-            report.ip = data.ip;
+        // define function to handle data from freegeoip.net
+        window.geoip = window.geoip || function (geoip) {
+            report.ip = geoip.ip;
+            report.country.name = geoip.country_name;
+            report.country.code = geoip.country_code;
+            report.country.city = geoip.city;
+            report.country.latitude = geoip.latitude;
+            report.country.longitude = geoip.longitude;
+            report.country.timezone = geoip.time_zone;
             callback(null, report);
         };
 
-        // inject script tag get JSONP response from ipify.org
+        // inject script tag get JSONP response from freegeoip.net
         newScriptTag = document.createElement("script");
-        newScriptTag.src = "https://api.ipify.org?format=jsonp&callback=getip";
+        newScriptTag.src = "https://freegeoip.net/json/?callback=geoip";
         existingScriptTag = document.getElementsByTagName("script")[0];
         existingScriptTag.parentNode.insertBefore(newScriptTag, existingScriptTag);
 

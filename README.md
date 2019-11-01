@@ -53,10 +53,18 @@ The report object has the following keys and value types.
             "version": (string)
         },
         "ip": (string),
+        "country": {
+            "name": (string),
+            "code": (string),
+            "city": (string),
+            "latitude" : (string),
+            "longitude": (string),
+            "timezone": (string)
+        },
         "java": {
             "version": (string)
         },
-        "lang": (array || string),
+        "lang": (array),
         "os": {
             "name": (string),
             "version": (string)
@@ -81,6 +89,14 @@ The report object has the following keys and value types.
         }
         "websockets": (boolean)
     }
+
+## TypeScript Usage
+
+    import 'browser-report';
+
+    window.browserReport((error, result) => {
+        console.log(result.ip + ' ' + result.browser.name);
+    });
 
 # Coverage
 
@@ -146,6 +162,10 @@ In chronological order (oldest first); not in order of priority. Contributions w
 * updated test cases based on lastest stats from caniuse.com
 * added performance marks and measures to sample page
 * updated documentation
+
+*2.2.9 – June 27, 2017*
+* added extended country info from freegeoip
+* added typescript definition
 
 *2.2.8 – January 18, 2017*
 
@@ -225,7 +245,7 @@ In chronological order (oldest first); not in order of priority. Contributions w
 * the previous synchronous function can still be found in `browserReportSync()`
 * the remote client IP address is now reported from ipify.org
 * a random UUID is now generated for cookie test instead of using the same UUID every time
-* report now includes the client's preferred language(s) for displaying pages
+* report now includes the client's preferred languages for displaying pages
 * report now includes a timestamp with the client's locale date, time and time zone
 
 *1.0.0 — September 11, 2015*
